@@ -3,6 +3,7 @@ import "./globals.css"
 import { Instrument_Serif, Kodchasan } from "next/font/google"
 import Header from "@/components/header"
 import { Analytics } from "@vercel/analytics/next"
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 const instrumentSerif = Instrument_Serif({
   subsets: ["latin"],
@@ -47,6 +48,7 @@ export default function RootLayout({
         <Header />
         {children}
         <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   )
