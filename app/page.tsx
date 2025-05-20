@@ -604,7 +604,7 @@ export default function Home() {
       {/* Process Section - Updated with responsive cards for mobile */}
       <section
         ref={(el) => (sectionsRef.current[3] = el)}
-        className="h-screen w-full flex flex-col justify-between bg-[var(--background)]"
+        className="w-full flex flex-col justify-between bg-[var(--background)]"
       >
        <div className="w-full flex-grow flex items-center px-6 lg:px-16 py-12 lg:py-16">
           <div className="max-w-6xl mx-auto w-full">
@@ -612,9 +612,9 @@ export default function Home() {
               {/* Section heading */}
               <div className="mb-6">
                 <div className="mb-1 text-sm uppercase" style={{ color: "var(--foreground)", transition: "none" }}>
-                  VAULTS
+                  PUBLIC VAULTS
                 </div>
-                <div className="w-16 h-px bg-black mb-4"></div>
+                <div className="w-[110px] h-px bg-black mb-4"></div>
               </div>
 
               {/* Content area with heading and cards side by side */}
@@ -622,7 +622,7 @@ export default function Home() {
                 {/* Left column with subheading */}
                 <div className="lg:w-1/3 mb-8 lg:mb-0">
                   <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-serif leading-tight text-[var(--foreground)]">
-                    Earn yield on your assets
+                    Best in class yield, on any chain.
                   </h2>
                 </div>
 
