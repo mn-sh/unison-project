@@ -226,7 +226,7 @@ export default function Home() {
                     <span className="block font-serif">Asset Management & Yield Protocol</span>
                    <div className="bg-[var(--text-box-bg)] text-[var(--subheading-text)] p-2 rounded mt-6 w-full max-w-md">
                      <span className="block text-[12px] sm:text-[14px] md:text-[14px] lg:text-base font-alte-haas tracking-normal leading-5 sm:leading-6 md:leading-6">
-                       Yield Infrastructure with Chain-Abstraction & Automation for <span className="font-bold">Scalable</span>, <span className="font-bold">Efficient</span>, and <span className="font-bold">Accessible</span> Cross-Chain Vaults and Strategies.
+                       Yield Infrastructure with Chain-Abstraction & Automation, for <span className="font-bold">Scalable</span>, <span className="font-bold">Efficient</span>, and <span className="font-bold">Accessible</span> Cross-Chain Vaults and Strategies.
                      </span>
                    </div>
                   </h1>
@@ -389,7 +389,7 @@ export default function Home() {
                         Bitcoin
                       </div>
                       <div className="!text-white text-xl sm:text-2xl md:text-3xl font-bold mb-0 tracking-tight mt-6">
-                        5 — 9%<sup className="opacity-50">*</sup>
+                        2 — 5%<sup className="opacity-50">*</sup>
                       </div>
                     </div>
                     <div className="flex justify-end">
@@ -418,6 +418,9 @@ export default function Home() {
                       </div>
                     </div>
                   </InteractiveCard>
+                </div>
+                <div className="w-full mt-4 p-2">
+                  <p className="text-xs text-right text-white/30">*Yields can vary based on market conditions.</p>
                 </div>
               </div>
             </div>
@@ -632,7 +635,7 @@ export default function Home() {
                         <div>
                           <h3 className="text-xl md:text-2xl font-serif mb-1 md:mb-2">Efficient</h3>
                           <p className="text-sm md:text-base">
-                            Earn up to 18% APR<sup>*</sup> on your stables with our strategies, optimised across chains.
+                            Earn up to 18% APR<sup>*</sup> on your stables with our strategies, optimized across chains.
                           </p>
                         </div>
                       </div>
@@ -738,18 +741,18 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <div className="w-full bg-[#121212]">
-        <div className="max-w-full mx-auto px-6 lg:px-16">
-          <div className="flex justify-between items-center py-5">
-            <div className="text-xs text-white"> 2023 Unison - All rights reserved.</div>
+      <div className="w-full">
+        <div className="max-w-full mx-auto px-6 lg:px-16 pb-6">
+          <div className="flex justify-between items-center py-5 px-4 lg:px-8  border border-gray-500 border-opacity-25">
+            <div className="text-base text-white"> 2025 Unison - All rights reserved.</div>
             <div className="flex space-x-4">
-              <a target="_blank" rel="noopener noreferrer" href="https://docs.unison.gg" className="text-xs text-white hover:text-white">
+              <a target="_blank" rel="noopener noreferrer" href="https://docs.unison.gg" className="text-base text-white hover:text-white">
                 docs
               </a>
-              <a target="_blank" rel="noopener noreferrer" href="https://twitter.com/unison_gg" className="text-xs text-white hover:text-white">
-                twitter
+              <a target="_blank" rel="noopener noreferrer" href="https://twitter.com/unison_gg" className="text-base text-white hover:text-white">
+                X / twitter
               </a>
-              <a target="_blank" rel="noopener noreferrer" href="https://discord.gg/unison" className="text-xs text-white hover:text-white">
+              <a target="_blank" rel="noopener noreferrer" href="https://discord.gg/aQJQhUhG" className="text-base text-white hover:text-white">
                 discord
               </a>
             </div>
