@@ -1,0 +1,604 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Default Theme */
+:root {
+  --background: rgb(235, 233, 228);
+  --foreground: #222222;
+  --accent: #f8f3a3;
+  --card: 0 0% 100%;
+  --card-foreground: 0 0% 3.9%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 0 0% 3.9%;
+  --primary: 0 0% 9%;
+  --primary-foreground: 0 0% 98%;
+  --secondary: 0 0% 96.1%;
+  --secondary-foreground: 0 0% 9%;
+  --muted: 0 0% 96.1%;
+  --muted-foreground: 0 0% 45.1%;
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 0 0% 98%;
+  --border: 0 0% 89.8%;
+  --input: 0 0% 89.8%;
+  --ring: 0 0% 3.9%;
+  --radius: 0.5rem;
+
+  /* Base color */
+  --beige: rgb(235, 233, 228);
+  --cell-alive: rgba(34, 34, 34, 0.15);
+  --cell-dead: rgba(0, 0, 0, 0);
+  --card-bg: rgb(224, 220, 213);
+  --header-bg: rgba(255, 255, 255, 0.1);
+  --header-border: rgba(255, 255, 255, 0.1);
+  --button-bg: rgba(18, 18, 18, 0.9);
+  --button-hover: rgba(0, 0, 0, 0.95);
+  --dark-section-bg: #121212;
+  --dark-section-card-bg: #1a1a1a;
+  --dark-section-border: rgba(128, 128, 128, 0.5);
+  --footer-bg: #000000;
+
+  /* Font variables */
+  --font-alte-haas: "Alte Haas Grotesk", sans-serif;
+
+  --polygon-color: rgb(20, 20, 22);
+}
+
+/* Dark Theme (Night Mode) */
+.theme-dark {
+  --background: #121212;
+  --foreground: #ffffff;
+  --accent: rgb(187, 105, 58);
+  --beige: #121212;
+  --cell-alive: rgba(255, 255, 255, 0.2);
+  --card-bg: #1e1e1e;
+  --header-bg: rgba(0, 0, 0, 0.7);
+  --header-border: rgba(255, 255, 255, 0.1);
+  --button-bg: rgba(18, 18, 18, 0.9);
+  --button-hover: rgba(0, 0, 0, 0.95);
+  --dark-section-bg: #000000;
+  --dark-section-card-bg: #1a1a1a;
+  --dark-section-border: rgba(255, 255, 255, 0.2);
+  --footer-bg: #000000;
+  --text-primary: #ffffff;
+  --text-secondary: rgba(255, 255, 255, 0.7);
+  --text-muted: rgba(255, 255, 255, 0.5);
+  --border-color: rgba(255, 255, 255, 0.2);
+
+  /* Header background colors for dark theme */
+  --header-light-bg: rgba(18, 18, 18, 0.95);
+  --header-dark-bg: rgba(0, 0, 0, 0.95);
+
+  --polygon-color: white;
+}
+
+.dark {
+  --background: 0 0% 3.9%;
+  --foreground: 0 0% 98%;
+  --card: 0 0% 3.9%;
+  --card-foreground: 0 0% 98%;
+  --popover: 0 0% 3.9%;
+  --popover-foreground: 0 0% 98%;
+  --primary: 0 0% 98%;
+  --primary-foreground: 0 0% 9%;
+  --secondary: 0 0% 14.9%;
+  --secondary-foreground: 0 0% 98%;
+  --muted: 0 0% 14.9%;
+  --muted-foreground: 0 0% 63.9%;
+  --accent: 0 0% 14.9%;
+  --accent-foreground: 0 0% 98%;
+  --destructive: 0 62.8% 30.6%;
+  --destructive-foreground: 0 0% 98%;
+  --border: 0 0% 14.9%;
+  --input: 0 0% 14.9%;
+  --ring: 0 0% 83.1%;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-alte-haas);
+    overflow-x: hidden;
+  }
+}
+
+/* Add rounded corners to interactive elements */
+button,
+input,
+.interactive-card,
+.border,
+[class*="border-"],
+.card {
+  border-radius: 0.375rem; /* equivalent to rounded-md */
+}
+
+/* Ensure social media icons in footer remain rounded-full */
+.rounded-full {
+  border-radius: 9999px !important;
+}
+
+/* Font styling */
+.font-serif {
+  font-family: var(--font-instrument-serif), serif;
+  font-display: swap;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  letter-spacing: -0.01em;
+}
+
+.font-alte-haas {
+  font-family: var(--font-alte-haas);
+  font-display: swap;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Headings */
+h1.font-serif,
+h2.font-serif,
+h3.font-serif,
+h1,
+h2,
+h3,
+h4,
+h5,
+h5,
+h6 {
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  letter-spacing: -0.02em;
+  font-feature-settings: "kern", "liga", "clig", "calt";
+}
+
+/* Light mode heading contrast */
+section:not([class*="bg-[var(--dark-section-bg)]"]) h1.font-serif,
+section:not([class*="bg-[var(--dark-section-bg)]"]) h2.font-serif,
+section:not([class*="bg-[var(--dark-section-bg)]"]) h3.font-serif {
+  text-shadow: 0 0 1px rgba(0, 0, 0, 0.01);
+  color: rgba(0, 0, 0, 0.85);
+}
+
+/* Dark mode heading contrast */
+section[class*="bg-[var(--dark-section-bg)]"] h1.font-serif,
+section[class*="bg-[var(--dark-section-bg)]"] h2.font-serif,
+section[class*="bg-[var(--dark-section-bg)]"] h3.font-serif {
+  text-shadow: 0 0 1px rgba(255, 255, 255, 0.01);
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.font-kodchasan {
+  font-family: var(--font-kodchasan), sans-serif;
+  font-display: swap;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Tooltip animations */
+@keyframes tooltipFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(4px) translateX(-50%) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) translateX(-50%) scale(1);
+  }
+}
+
+@keyframes tooltipFadeOut {
+  from {
+    opacity: 1;
+    transform: translateY(0) translateX(-50%) scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(4px) translateX(-50%) scale(0.95);
+  }
+}
+
+.animate-tooltip-fade-in {
+  animation: tooltipFadeIn 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.animate-tooltip-fade-out {
+  animation: tooltipFadeOut 0.2s cubic-bezier(0.36, 0.07, 0.19, 0.97) forwards;
+}
+
+/* Game of Life grid */
+.checkers-container {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  grid-template-rows: repeat(10, 1fr);
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 1 / 1;
+  max-width: 100%;
+  margin: 0 auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: transparent;
+  contain: strict;
+}
+
+.life-cell {
+  width: 100%;
+  height: 100%;
+  transition: background-color 0.3s ease;
+  contain: layout style paint;
+}
+
+.alive {
+  background-color: var(--cell-alive);
+}
+
+.dead {
+  background-color: var(--cell-dead);
+}
+
+/* Hide scrollbar */
+::-webkit-scrollbar {
+  display: initial;
+  width: 6px;
+}
+
+html {
+  -ms-overflow-style: initial;
+  scrollbar-width: thin;
+  scroll-behavior: smooth; /* Add smooth scrolling */
+}
+
+/* Section styles */
+section {
+  scroll-margin-top: 80px; /* Add scroll margin for header */
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  will-change: opacity, background-color;
+  transition: background-color 0.5s ease-out;
+  position: relative;
+}
+
+/* Desktop section styles */
+@media (min-width: 1024px) {
+  section {
+    position: relative;
+    height: auto;
+    min-height: 100vh;
+    contain: layout style paint;
+  }
+
+  section.active {
+    animation: none;
+  }
+
+  body {
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+}
+
+/* Mobile section styles */
+@media (max-width: 1023px) {
+  section {
+    position: relative !important;
+    width: 100%;
+    min-height: 100vh;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+    display: block !important;
+    transform: none !important;
+  }
+
+  body {
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    height: auto !important;
+  }
+
+  html {
+    overflow-y: auto !important;
+    height: auto !important;
+  }
+
+  main {
+    height: auto !important;
+    overflow: visible !important;
+  }
+
+  section.pointer-events-none {
+    pointer-events: auto !important;
+  }
+
+  /* Optimize mobile grid */
+  .checkers-container {
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .checkers-container {
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+  }
+
+  .life-cell {
+    transition: background-color 0.4s ease;
+  }
+}
+
+/* Fix for intermittent text color issues during scrolling in Benefits section */
+section[data-section="benefits"] h3,
+section[data-section="benefits"] p,
+section:nth-of-type(2) h3,
+section:nth-of-type(2) p {
+  color: var(--foreground) !important;
+  transition: none !important;
+}
+
+/* Ensure Benefits section text is always visible and properly colored */
+.theme-dark section[data-section="benefits"] h3,
+.theme-dark section[data-section="benefits"] p,
+.theme-dark section:nth-of-type(2) h3,
+.theme-dark section:nth-of-type(2) p {
+  color: var(--text-primary) !important;
+}
+
+/* Prevent any transition effects on text color during scrolling */
+section {
+  transition: background-color 0.5s ease-out;
+}
+
+section * {
+  transition-property: transform, opacity, background-color;
+  transition-duration: 0.3s;
+  transition-timing-function: ease;
+}
+
+/* Additional protection against color flashing */
+[data-section="benefits"] {
+  isolation: isolate;
+}
+
+[data-section="benefits"] h3,
+[data-section="benefits"] p {
+  will-change: auto;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+/* Ensure smooth transitions between sections */
+section[ref] * {
+  transition: color 0.3s ease, background-color 0.3s ease, opacity 0.3s ease;
+}
+
+/* Header styles */
+header.text-white {
+  color: white;
+}
+
+header.text-white .hover\:underline:hover {
+  text-decoration: underline;
+  text-decoration-color: white;
+}
+
+header.text-white button {
+  color: white;
+}
+
+/* Header text readability */
+header.text-white {
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+header.text-black {
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.3);
+}
+
+/* Button styles */
+button[type="submit"],
+.inline-flex.items-center.justify-center,
+header a[href="/contact"],
+a[href="#contact"] {
+  background-color: rgba(18, 18, 18, 0.9) !important;
+  background-image: none !important;
+  border-radius: 0.375rem !important;
+  box-shadow: inset 0px 1px 0px 0px rgba(255, 255, 255, 0.1), 0px 1px 2px 0px rgba(0, 0, 0, 0.2) !important;
+  display: inline-flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  overflow: hidden !important;
+  cursor: pointer !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  transition: all 0.2s !important;
+  color: white !important;
+  font-weight: 500 !important;
+  line-height: 1.2 !important;
+}
+
+button[type="submit"]:hover,
+.inline-flex.items-center.justify-center:hover,
+header a[href="/contact"]:hover,
+a[href="#contact"]:hover {
+  background-color: rgba(0, 0, 0, 0.95) !important;
+  background-image: none !important;
+  box-shadow: inset 0px 1px 0px 0px rgba(255, 255, 255, 0.1), 0px 2px 4px 0px rgba(0, 0, 0, 0.25) !important;
+}
+
+button[type="submit"]:active,
+.inline-flex.items-center.justify-center:active,
+header a[href="/contact"]:active,
+a[href="#contact"]:active {
+  background-color: black !important;
+  background-image: none !important;
+}
+
+/* SVG icon styling */
+.svg-icon {
+  color: black;
+}
+
+/* Dark section active */
+.dark-section-active {
+  background-color: var(--dark-section-bg);
+  color: white;
+}
+
+/* Theme toggle button styles */
+.theme-toggle-button {
+  position: relative;
+  overflow: hidden;
+  transition: color 0.3s ease;
+  background: transparent;
+  border: none;
+}
+
+.theme-toggle-button:hover {
+  opacity: 0.8;
+}
+
+.theme-toggle-button:active {
+  opacity: 0.6;
+}
+
+/* Dark theme overrides */
+.theme-dark {
+  color: var(--text-primary);
+}
+
+.theme-dark h1,
+.theme-dark h2,
+.theme-dark h3,
+.theme-dark h4,
+.theme-dark h5,
+.theme-dark h6,
+.theme-dark .font-serif {
+  color: var(--text-primary) !important;
+}
+
+.theme-dark p {
+  color: var(--text-secondary);
+}
+
+.theme-dark .interactive-card {
+  background-color: var(--card-bg) !important;
+  border-color: var(--border-color) !important;
+}
+
+.theme-dark .interactive-card div,
+.theme-dark .interactive-card p {
+  color: var(--text-secondary);
+}
+
+.theme-dark .interactive-card h3 {
+  color: var(--text-primary);
+}
+
+.theme-dark input {
+  background-color: #2a2a2a;
+  color: var(--text-primary);
+  border-color: var(--border-color);
+}
+
+.theme-dark button {
+  color: inherit;
+}
+
+.theme-dark .border-black {
+  border-color: var(--border-color);
+}
+\
+.theme-dark .bg-\[rgb(235\,_233\,_228)\] {
+  background-color: var(--background);
+}
+
+.theme-dark .text-\[\#222222\],
+.theme-dark .text-black {
+  color: var(--text-primary) !important;
+}
+
+.theme-dark .text-black\/70 {
+  color: var(--text-secondary) !important;
+}
+
+.theme-dark .border-black\/30 {
+  border-color: var(--border-color);
+}
+
+/* Ensure tooltip text is always black regardless of theme */
+.theme-dark [class*="tooltip"],
+.theme-dark [class*="animate-tooltip"] {
+  color: #000 !important;
+}
+
+.dark .fill-white.dark\:fill-black {
+  fill: black;
+}
+
+.theme-dark .fill-white.dark\:fill-black {
+  fill: black;
+}
+
+/* Theme toggle button styles */
+.theme-toggle-button {
+  position: relative;
+  overflow: hidden;
+  transition: color 0.3s ease;
+  background: transparent;
+  border: none;
+}
+
+.theme-toggle-button:hover {
+  opacity: 0.8;
+}
+
+.theme-toggle-button:active {
+  opacity: 0.6;
+}
+
+/* Dark mode beige background for icon containers */
+.theme-dark [data-dark-bg="beige"] {
+  background-color: rgb(235, 233, 228) !important;
+  border-color: rgba(0, 0, 0, 0.2) !important;
+}
+
+.theme-dark [data-dark-bg="beige"] svg path {
+  stroke: #000 !important;
+}
+
+.theme-dark [data-dark-bg="beige"] .svg-icon {
+  color: #000 !important;
+}
+
+/* Ensure SVG paths use beige in light mode but black in dark mode */
+.theme-dark [data-dark-bg="beige"] svg path,
+.theme-dark [data-dark-bg="beige"] svg circle {
+  stroke: #000 !important;
+}
