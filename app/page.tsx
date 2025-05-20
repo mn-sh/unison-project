@@ -297,7 +297,7 @@ export default function Home() {
       >
         <div className="w-full py-12 lg:py-16 px-6 lg:px-16">
           <div className="max-w-6xl mx-auto">
-            <div className="mb-2 text-sm uppercase">BENEFITS</div>
+            <div className="mb-2 text-sm uppercase">FEATURES</div>
             <div className="w-16 h-0.5 bg-[var(--decor)] mb-6"></div>
 
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif mb-10 lg:mb-16">
@@ -332,8 +332,8 @@ export default function Home() {
                   Omni-Chain
                 </h3>
                 <p className="text-sm lg:text-base" style={{ color: "var(--foreground)", transition: "none" }}>
-                  Deposit from Any Chain and Seamlessly Earn Yield Across Protocols on Any Chain. Unison Vaults Are
-                  Natively Cross-Chain
+                  Deposit from any chain and seamlessly earn yield across protocols from every chain. Unison Vaults are
+                  natively cross-chain.
                 </p>
               </div>
 
@@ -394,11 +394,11 @@ export default function Home() {
                   className="text-2xl lg:text-3xl font-serif mb-3 lg:mb-4"
                   style={{ color: "var(--foreground)", transition: "none" }}
                 >
-                  Specialized
+                  Flexible
                 </h3>
                 <p className="text-sm lg:text-base" style={{ color: "var(--foreground)", transition: "none" }}>
-                  Craft Your Vaults, Customize Allocations, and Blend Strategies Your Way using Unison's Modular
-                  Architecture.
+                  Craft your vaults, customize allocations, and blend strategies your way using Unison's modular
+                  architecture.
                 </p>
               </div>
             </div>
