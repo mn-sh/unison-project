@@ -471,8 +471,7 @@ export default function Home() {
                   Omni-Chain
                 </h3>
                 <p className="text-sm lg:text-base" style={{ color: "var(--foreground)", transition: "none" }}>
-                  Deposit from any chain and seamlessly earn yield across protocols from every chain. Unison Vaults are
-                  natively cross-chain.
+                  Deposit from any chain and seamlessly earn the best yield optimized across chains.
                 </p>
               </div>
 
@@ -501,10 +500,10 @@ export default function Home() {
                   className="text-2xl lg:text-3xl font-serif mb-3 lg:mb-4"
                   style={{ color: "var(--foreground)", transition: "none" }}
                 >
-                  Self-Custodial
+                  Non-Custodial
                 </h3>
                 <p className="text-sm lg:text-base" style={{ color: "var(--foreground)", transition: "none" }}>
-                  Your Assets, Your Control. Unison is fully self-custodial, meaning only you control your funds,
+                  Your Assets, Your Control. Unison is fully non-custodial, meaning only you control your funds,
                   always.
                 </p>
               </div>
@@ -536,8 +535,7 @@ export default function Home() {
                   Flexible
                 </h3>
                 <p className="text-sm lg:text-base" style={{ color: "var(--foreground)", transition: "none" }}>
-                  Craft your vaults, customize allocations, and blend strategies your way using Unison's modular
-                  architecture.
+                  Craft your vaults, customize allocations, and blend strategies your way using Unison's Private Vaults.
                 </p>
               </div>
             </div>
@@ -579,13 +577,13 @@ export default function Home() {
                       <br />
                       Any Chain,
                       <br />
-                      Full transparency.
+                      Transparent.
                     </>
                   ) : (
                     <>
-                      Personal,
+                      Non-Custodial,
                       <br />
-                      Customizable,
+                      Flexible,
                       <br />
                       Complete control.
                     </>
@@ -593,12 +591,12 @@ export default function Home() {
                 </h2>
               </div>
 
-              <div className="lg:w-1/2 w-full border border-gray-700 bg-[#1a1a1a] p-6 lg:p-8">
+              <div className="lg:w-1/2 w-full bg-gradient-to-bl from-zinc-800 to-zinc-900 hover:from-zinc-900 hover:to-zinc-900 transition-all duration-300 border border-white/10 p-6 lg:p-8">
                 <div className="min-h-[240px] md:min-h-[320px]">
                   {activeTab === "individuals" ? (
                     <div className="space-y-4 md:space-y-6">
                       <div className="flex items-start">
-                        <div className="border border-gray-500 w-10 h-10 md:w-12 md:h-12 flex items-center justify-center flex-shrink-0 mr-3 md:mr-4 mt-1">
+                        <div className="border border-black w-10 h-10 md:w-12 md:h-12 flex items-center justify-center flex-shrink-0 mr-3 md:mr-4 mt-1 bg-white">
                           <svg
                             width="20"
                             height="20"
@@ -606,20 +604,19 @@ export default function Home() {
                             fill="none"
                             xmlns="http://www.w3.org/2000/svg"
                           >
-                            <rect x="4" y="4" width="16" height="16" stroke="white" strokeWidth="1.5" />
-                            <circle cx="12" cy="12" r="4" stroke="white" strokeWidth="1.5" />
+                            <rect x="4" y="4" width="16" height="16" stroke="black" strokeWidth="1.5" />
+                            <circle cx="12" cy="12" r="4" stroke="black" strokeWidth="1.5" />
                           </svg>
                         </div>
                         <div>
-                          <h3 className="text-xl md:text-2xl font-serif mb-1 md:mb-2">Personal Wallet</h3>
+                          <h3 className="text-xl md:text-2xl font-serif mb-1 md:mb-2">Set and Forget</h3>
                           <p className="text-sm md:text-base">
-                            Secure your assets with our non-custodial solution that gives you complete control over your
-                            digital assets.
+                            The best yield with the least amount of work. Deposit from any chain and let Unison handle the rest. 
                           </p>
                         </div>
                       </div>
                       <div className="flex items-start">
-                        <div className="border border-gray-500 w-10 h-10 md:w-12 md:h-12 flex items-center justify-center flex-shrink-0 mr-3 md:mr-4 mt-1">
+                        <div className="border border-black w-10 h-10 md:w-12 md:h-12 flex items-center justify-center flex-shrink-0 mr-3 md:mr-4 mt-1 bg-white">
                           <svg
                             width="20"
                             height="20"
@@ -627,20 +624,20 @@ export default function Home() {
                             fill="none"
                             xmlns="http://www.w3.org/2000/svg"
                           >
-                            <path d="M4 20L20 4" stroke="white" strokeWidth="1.5" />
-                            <path d="M10 4H20V14" stroke="white" strokeWidth="1.5" />
-                            <path d="M4 12L8 8L12 12L16 8" stroke="white" strokeWidth="1.5" />
+                            <path d="M4 20L20 4" stroke="black" strokeWidth="1.5" />
+                            <path d="M10 4H20V14" stroke="black" strokeWidth="1.5" />
+                            <path d="M4 12L8 8L12 12L16 8" stroke="black" strokeWidth="1.5" />
                           </svg>
                         </div>
                         <div>
-                          <h3 className="text-xl md:text-2xl font-serif mb-1 md:mb-2">Yield Generation</h3>
+                          <h3 className="text-xl md:text-2xl font-serif mb-1 md:mb-2">Efficient</h3>
                           <p className="text-sm md:text-base">
-                            Earn up to 18% APR on your stable assets with our transparent yield generation strategies.
+                            Earn up to 18% APR<sup>*</sup> on your stables with our strategies, optimised across chains.
                           </p>
                         </div>
                       </div>
                       <div className="flex items-start">
-                        <div className="border border-gray-500 w-10 h-10 md:w-12 md:h-12 flex items-center justify-center flex-shrink-0 mr-3 md:mr-4 mt-1">
+                        <div className="border border-black w-10 h-10 md:w-12 md:h-12 flex items-center justify-center flex-shrink-0 mr-3 md:mr-4 mt-1 bg-white">
                           <svg
                             width="20"
                             height="20"
@@ -648,15 +645,15 @@ export default function Home() {
                             fill="none"
                             xmlns="http://www.w3.org/2000/svg"
                           >
-                            <path d="M12 8V16" stroke="white" strokeWidth="1.5" />
-                            <path d="M8 12H16" stroke="white" strokeWidth="1.5" />
-                            <path d="M7 7L17 17" stroke="white" strokeWidth="1.5" />
+                            <path d="M12 8V16" stroke="black" strokeWidth="1.5" />
+                            <path d="M8 12H16" stroke="black" strokeWidth="1.5" />
+                            <path d="M7 7L17 17" stroke="black" strokeWidth="1.5" />
                           </svg>
                         </div>
                         <div>
-                          <h3 className="text-xl md:text-2xl font-serif mb-1 md:mb-2">Multi-Chain Support</h3>
+                          <h3 className="text-xl md:text-2xl font-serif mb-1 md:mb-2">Transparent</h3>
                           <p className="text-sm md:text-base">
-                            Access multiple blockchains from one interface with seamless cross-chain operations.
+                            Have complete overview of where your assets are deployed, their allocations and performance.
                           </p>
                         </div>
                       </div>
@@ -664,7 +661,7 @@ export default function Home() {
                   ) : (
                     <div className="space-y-4 md:space-y-6">
                       <div className="flex items-start">
-                        <div className="border border-gray-500 w-10 h-10 md:w-12 md:h-12 flex items-center justify-center flex-shrink-0 mr-3 md:mr-4 mt-1">
+                        <div className="border border-black w-10 h-10 md:w-12 md:h-12 flex items-center justify-center flex-shrink-0 mr-3 md:mr-4 mt-1 bg-white">
                           <svg
                             width="20"
                             height="20"
@@ -672,21 +669,21 @@ export default function Home() {
                             fill="none"
                             xmlns="http://www.w3.org/2000/svg"
                           >
-                            <rect x="4" y="4" width="7" height="7" stroke="white" strokeWidth="1.5" />
-                            <rect x="13" y="4" width="7" height="7" stroke="white" strokeWidth="1.5" />
-                            <rect x="4" y="13" width="7" height="7" stroke="white" strokeWidth="1.5" />
-                            <rect x="13" y="13" width="7" height="7" stroke="white" strokeWidth="1.5" />
+                            <rect x="4" y="4" width="7" height="7" stroke="black" strokeWidth="1.5" />
+                            <rect x="13" y="4" width="7" height="7" stroke="black" strokeWidth="1.5" />
+                            <rect x="4" y="13" width="7" height="7" stroke="black" strokeWidth="1.5" />
+                            <rect x="13" y="13" width="7" height="7" stroke="black" strokeWidth="1.5" />
                           </svg>
                         </div>
                         <div>
-                          <h3 className="text-xl md:text-2xl font-serif mb-1 md:mb-2">Custom Infrastructure</h3>
+                          <h3 className="text-xl md:text-2xl font-serif mb-1 md:mb-2">Custom</h3>
                           <p className="text-sm md:text-base">
-                            Tailored solutions for your organization's specific needs with flexible deployment options.
+                            Pick your asset, select protocols, set allocations and launch your vaults in minutes.
                           </p>
                         </div>
                       </div>
                       <div className="flex items-start">
-                        <div className="border border-gray-500 w-10 h-10 md:w-12 md:h-12 flex items-center justify-center flex-shrink-0 mr-3 md:mr-4 mt-1">
+                        <div className="border border-black w-10 h-10 md:w-12 md:h-12 flex items-center justify-center flex-shrink-0 mr-3 md:mr-4 mt-1 bg-white">
                           <svg
                             width="20"
                             height="20"
@@ -694,19 +691,19 @@ export default function Home() {
                             fill="none"
                             xmlns="http://www.w3.org/2000/svg"
                           >
-                            <circle cx="12" cy="12" r="8" stroke="white" strokeWidth="1.5" />
-                            <path d="M12 8V16" stroke="white" strokeWidth="1.5" />
-                            <path d="M8 12H16" stroke="white" strokeWidth="1.5" />
+                            <circle cx="12" cy="12" r="8" stroke="black" strokeWidth="1.5" />
+                            <path d="M12 8V16" stroke="black" strokeWidth="1.5" />
+                            <path d="M8 12H16" stroke="black" strokeWidth="1.5" />
                           </svg>
                         </div>
                         <div>
-                          <h3 className="text-xl md:text-2xl font-serif mb-1 md:mb-2">Advanced Security</h3>
+                          <h3 className="text-xl md:text-2xl font-serif mb-1 md:mb-2">Flexible</h3>
                           <p className="text-sm md:text-base">
-                            Enterprise-grade security and compliance features to protect your organization's assets.
+                          Private Vaults can be used to manage Protocol Treasuries, launch yield-generating tokens, or run an on-chain fund.
                           </p>
                         </div>
                       </div>
-                      <div className="flex items-start">
+                      {/*<div className="flex items-start">
                         <div className="border border-gray-500 w-10 h-10 md:w-12 md:h-12 flex items-center justify-center flex-shrink-0 mr-3 md:mr-4 mt-1">
                           <svg
                             width="20"
@@ -725,12 +722,12 @@ export default function Home() {
                           </svg>
                         </div>
                         <div>
-                          <h3 className="text-xl md:text-2xl font-serif mb-1 md:mb-2">Dedicated Support</h3>
+                          <h3 className="text-xl md:text-2xl font-serif mb-1 md:mb-2">Non-Custodial</h3>
                           <p className="text-sm md:text-base">
-                            24/7 priority support and dedicated account management for your institution.
+                            Private Vaults are private to you
                           </p>
                         </div>
-                      </div>
+                      </div>*/}
                     </div>
                   )}
                 </div>
@@ -748,6 +745,9 @@ export default function Home() {
             <div className="flex space-x-4">
               <a target="_blank" rel="noopener noreferrer" href="https://docs.unison.gg" className="text-xs text-white hover:text-white">
                 docs
+              </a>
+              <a target="_blank" rel="noopener noreferrer" href="https://twitter.com/unison_gg" className="text-xs text-white hover:text-white">
+                twitter
               </a>
               <a target="_blank" rel="noopener noreferrer" href="https://discord.gg/unison" className="text-xs text-white hover:text-white">
                 discord

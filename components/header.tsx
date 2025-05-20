@@ -106,7 +106,7 @@ const Header = memo(() => {
         </div>
       </header>
       {/* Beta notification pill */}
-      <div className="fixed top-[8rem] left-0 right-0 z-10 flex justify-center">
+      <div className="fixed top-[6rem] sm:top-[6rem] md:top-[6rem] lg:top-[8rem] left-0 right-0 z-10 flex justify-center">
         <div className="relative">
           <div
             className="bg-gradient-to-bl from-zinc-700 to-zinc-900 hover:from-zinc-900 hover:to-zinc-700 text-white text-xs py-1 px-4 rounded-full border border-gray-500 cursor-pointer hover:opacity-90 transition-opacity relative z-10"

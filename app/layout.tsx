@@ -1,6 +1,6 @@
 import type React from "react"
 import "./globals.css"
-import { Instrument_Serif, Kodchasan } from "next/font/google"
+import { Instrument_Serif, Kodchasan} from "next/font/google"
 import Header from "@/components/header"
 import { Analytics } from "@vercel/analytics/next"
 import { SpeedInsights } from "@vercel/speed-insights/next"
@@ -18,6 +18,7 @@ const kodchasan = Kodchasan({
   variable: "--font-kodchasan",
   display: "swap",
 })
+
 
 export const metadata = {
   title: "Unison - Asset Management & Yield Protocol",
