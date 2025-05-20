@@ -745,7 +745,7 @@ export default function Home() {
         </div>
         {/** Footer */}
         <div className="w-full mt-auto bg-[#121212]">
-          <div className="max-w-full mx-auto px-20 lg:px-16">
+          <div className="max-w-full mx-auto px-6 lg:px-16">
             <div className="flex justify-between items-center py-5">
               <div className="text-xs text-white"> 2023 Unison - All rights reserved.</div>
               <div className="flex space-x-4">
