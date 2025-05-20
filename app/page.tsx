@@ -242,7 +242,7 @@ export default function Home() {
                     <button
                       type="submit"
                       disabled={isSubmitting || submitSuccess || alreadyJoined}
-                      className={`mt-4 w-full border border-gray-500/50 ${
+                      className={`mt-4 w-full border border-gray-500/50 h-[42px] lg:h-[45px] ${
                         submitSuccess || alreadyJoined 
                           ? "bg-gradient-to-r from-red-500 to-orange-500"
                           : "bg-gradient-to-bl from-zinc-700 to-zinc-900 hover:from-zinc-900 hover:to-zinc-700"
@@ -286,13 +286,152 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Vaults Section */}
+      <section
+        ref={(el) => (sectionsRef.current[3] = el)}
+        className="w-full flex items-center bg-[var(--background)]"
+      >
+        <div className="w-full py-12 lg:py-16 px-6 lg:px-16">
+          <div className="max-w-6xl mx-auto">
+            <div className="mb-6">
+              <div className="mb-1 text-sm uppercase" style={{ color: "var(--foreground)", transition: "none" }}>
+                PUBLIC VAULTS
+              </div>
+              <div className="w-[110px] h-px bg-[var(--decor)] mb-4"></div>
+            </div>
+
+            {/* Content area with heading and cards side by side */}
+            <div className="flex flex-col lg:flex-row items-start gap-8">
+              {/* Left column with subheading */}
+              <div className="lg:w-1/3 mb-8 lg:mb-0">
+                <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-serif leading-tight text-[var(--foreground)]">
+                  Best in class yield, on any chain.
+                </h2>
+              </div>
+
+              {/* Right column with vault cards */}
+              <div className="lg:w-2/3 w-full">
+                {/* Modified grid for mobile to make cards take full width */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mx-0">
+                  {/* Stables Card */}
+                  <InteractiveCard
+                    className="interactive-card p-4 relative flex flex-col justify-between h-[170px] w-full mx-0 rounded-3xl bg-gradient-to-tl from-zinc-700 to-zinc-900"
+                    style={{
+                      boxShadow: "none",
+                      borderRadius: "5px",
+                      border: "1px solid rgba(0,0,0,0.1)",
+                    }}
+                  >
+                    <div>
+                      <div className="text-white text-lg sm:text-xl md:text-2xl font-serif mb-1">
+                        Stables
+                      </div>
+                      <div className="!text-white text-xl sm:text-2xl md:text-3xl font-bold mb-0 tracking-tight mt-6">
+                        13 — 18%<sup className="opacity-50">*</sup>
+                      </div>
+                    </div>
+                    <div className="flex justify-end">
+                      <DollarSign
+                        strokeWidth={1.25}
+                        className="w-12 h-12 text-stone-100 opacity-20"
+                      />
+                    </div>
+                  </InteractiveCard>
+
+                  {/* Ethereum Card */}
+                  <InteractiveCard
+                    className="interactive-card p-4 relative flex flex-col justify-between h-[170px] w-full mx-0 bg-gradient-to-tr from-zinc-700 to-zinc-900"
+                    style={{
+                      boxShadow: "none",
+                      borderRadius: "5px",
+                      border: "1px solid rgba(0,0,0,0.1)",
+                    }}
+                  >
+                    <div>
+                      <div className="text-white text-lg sm:text-xl md:text-2xl font-serif mb-1">
+                        Ethereum
+                      </div>
+                      <div className="!text-white text-xl sm:text-2xl md:text-3xl font-bold mb-0 tracking-tight mt-6">
+                        8 — 12%<sup className="opacity-50">*</sup>
+                      </div>
+                    </div>
+                    <div className="flex justify-end">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="1"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        className="w-12 h-12 text-white opacity-20"
+                      >
+                        <path d="M12 2L4 12.5L12 16" />
+                        <path d="M12 2L20 12.5L12 16" />
+                        <path d="M4 12.5L12 22L20 12.5" />
+                        <path d="M12 16L12 22" />
+                      </svg>
+                    </div>
+                  </InteractiveCard>
+
+                  {/* Bitcoin Card */}
+                  <InteractiveCard
+                    className="interactive-card p-4 relative flex flex-col justify-between h-[170px] w-full mx-0 bg-gradient-to-bl from-zinc-700 to-zinc-900"
+                    style={{
+                      backgroundColor: "#f2b035",
+                      boxShadow: "none",
+                      borderRadius: "5px",
+                      border: "1px solid rgba(0,0,0,0.1)",
+                    }}
+                  >
+                    <div>
+                      <div className="text-white text-lg sm:text-xl md:text-2xl font-serif mb-1">
+                        Bitcoin
+                      </div>
+                      <div className="!text-white text-xl sm:text-2xl md:text-3xl font-bold mb-0 tracking-tight mt-6">
+                        5 — 9%<sup className="opacity-50">*</sup>
+                      </div>
+                    </div>
+                    <div className="flex justify-end">
+                      <Bitcoin className="w-12 h-12 text-stone-100 opacity-20"
+                        strokeWidth={1.25}
+                      />
+                    </div>
+                  </InteractiveCard>
+
+                  {/* Your Favorite Assets Card */}
+                  <InteractiveCard
+                    className="interactive-card p-4 relative flex flex-col justify-between h-[170px] w-full mx-0 bg-gradient-to-br from-zinc-700 to-zinc-900"
+                    style={{
+                      backgroundColor: "var(--card-bg)",
+                      boxShadow: "none",
+                      borderRadius: "5px",
+                      border: "1px solid rgba(0,0,0,0.1)",
+                    }}
+                  >
+                    <div className="flex flex-col justify-between h-full">
+                      <div className="text-white text-2xl sm:text-3xl md:text-4xl font-serif">
+                        Your Own Vaults
+                      </div>
+                      <div className="flex justify-end">
+                        <Plus className="w-6 h-6 text-white opacity-100" />
+                      </div>
+                    </div>
+                  </InteractiveCard>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Benefits Section */}
       <section
         ref={(el) => {
           sectionsRef.current[1] = el
           if (el) el.setAttribute("data-section", "benefits")
         }}
-        className="min-h-screen w-full flex items-center bg-[var(--background)]"
+        className="w-full flex items-center bg-[var(--background)]"
         style={{ color: "var(--foreground)" }}
       >
         <div className="w-full py-12 lg:py-16 px-6 lg:px-16">
@@ -409,7 +548,7 @@ export default function Home() {
       {/* Features Section */}
       <section
         ref={(el) => (sectionsRef.current[2] = el)}
-        className="min-h-screen w-full flex items-center bg-[var(--dark-section-bg)] text-white"
+        className="w-full flex items-center bg-[var(--dark-section-bg)] text-white"
       >
         <div className="w-full py-12 lg:py-16 px-6 lg:px-16">
           <div className="max-w-6xl mx-auto">
@@ -601,165 +740,22 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Process Section - Updated with responsive cards for mobile */}
-      <section
-        ref={(el) => (sectionsRef.current[3] = el)}
-        className="w-full flex flex-col justify-between bg-[var(--background)]"
-      >
-       <div className="w-full flex-grow flex items-center px-6 lg:px-16 py-12 lg:py-16">
-          <div className="max-w-6xl mx-auto w-full">
-            <div>
-              {/* Section heading */}
-              <div className="mb-6">
-                <div className="mb-1 text-sm uppercase" style={{ color: "var(--foreground)", transition: "none" }}>
-                  PUBLIC VAULTS
-                </div>
-                <div className="w-[110px] h-px bg-black mb-4"></div>
-              </div>
-
-              {/* Content area with heading and cards side by side */}
-              <div className="flex flex-col lg:flex-row items-start gap-8">
-                {/* Left column with subheading */}
-                <div className="lg:w-1/3 mb-8 lg:mb-0">
-                  <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-serif leading-tight text-[var(--foreground)]">
-                    Best in class yield, on any chain.
-                  </h2>
-                </div>
-
-                {/* Right column with vault cards */}
-                <div className="lg:w-2/3 w-full">
-                  {/* Modified grid for mobile to make cards take full width */}
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mx-0">
-                    {/* Stables Card */}
-                    <InteractiveCard
-                      className="interactive-card p-4 relative flex flex-col justify-between h-[170px] w-full mx-0 rounded-3xl bg-gradient-to-tl from-zinc-700 to-zinc-900"
-                      style={{
-                        /*backgroundColor: "#7fd177",*/
-                        boxShadow: "none",
-                        borderRadius: "5px",
-                        border: "1px solid rgba(0,0,0,0.1)",
-                      }}
-                    >
-                      <div>
-                        <div className="text-stone-100 text-lg sm:text-xl md:text-2xl font-serif mb-1">
-                          Stables
-                        </div>
-                        <h3 className="text-stone-100 text-xl sm:text-2xl md:text-3xl font-bold mb-0 tracking-tight mt-6">
-                          13 — 18%<sup className="opacity-50">*</sup>
-                        </h3>
-                      </div>
-                      <div className="flex justify-end">
-                        <DollarSign
-                          strokeWidth={1.25}
-                          className="w-12 h-12 text-stone-100 opacity-20"
-                        />
-                      </div>
-                    </InteractiveCard>
-
-                    {/* Ethereum Card */}
-                    <InteractiveCard
-                      className="interactive-card p-4 relative flex flex-col justify-between h-[170px] w-full mx-0 bg-gradient-to-tr from-zinc-700 to-zinc-900"
-                      style={{
-                        /*backgroundColor: "#739cf5",*/
-                        boxShadow: "none",
-                        borderRadius: "5px",
-                        border: "1px solid rgba(0,0,0,0.1)",
-                      }}
-                    >
-                      <div>
-                        <div className="text-stone-100 text-lg sm:text-xl md:text-2xl font-serif mb-1">
-                          Ethereum
-                        </div>
-                        <h3 className="text-stone-100 text-xl sm:text-2xl md:text-3xl font-bold mb-0 tracking-tight mt-6">
-                          8 — 12%<sup className="opacity-50">*</sup>
-                        </h3>
-                      </div>
-                      <div className="flex justify-end">
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="currentColor"
-                          strokeWidth="1"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          className="w-12 h-12 text-white opacity-20"
-                        >
-                          <path d="M12 2L4 12.5L12 16" />
-                          <path d="M12 2L20 12.5L12 16" />
-                          <path d="M4 12.5L12 22L20 12.5" />
-                          <path d="M12 16L12 22" />
-                        </svg>
-                      </div>
-                    </InteractiveCard>
-
-                    {/* Bitcoin Card */}
-                    <InteractiveCard
-                      className="interactive-card p-4 relative flex flex-col justify-between h-[170px] w-full mx-0 bg-gradient-to-bl from-zinc-700 to-zinc-900"
-                      style={{
-                        backgroundColor: "#f2b035",
-                        boxShadow: "none",
-                        borderRadius: "5px",
-                        border: "1px solid rgba(0,0,0,0.1)",
-                      }}
-                    >
-                      <div>
-                        <div className="text-stone-100 text-lg sm:text-xl md:text-2xl font-serif mb-1">
-                          Bitcoin
-                        </div>
-                        <h3 className="text-stone-100 text-xl sm:text-2xl md:text-3xl font-bold mb-0 tracking-tight mt-6">
-                          5 — 9%<sup className="opacity-50">*</sup>
-                        </h3>
-                      </div>
-                      <div className="flex justify-end">
-                        <Bitcoin className="w-12 h-12 text-stone-100 opacity-20"
-                          strokeWidth={1.25}
-                        />
-                      </div>
-                    </InteractiveCard>
-
-                    {/* Your Favorite Assets Card */}
-                    <InteractiveCard
-                      className="interactive-card p-4 relative flex flex-col justify-between h-[170px] w-full mx-0 bg-gradient-to-br from-zinc-700 to-zinc-900"
-                      style={{
-                        backgroundColor: "var(--card-bg)",
-                        boxShadow: "none",
-                        borderRadius: "5px",
-                        border: "1px solid rgba(0,0,0,0.1)",
-                      }}
-                    >
-                      <div className="flex flex-col justify-between h-full">
-                        <div className="text-stone-100 text-2xl sm:text-3xl md:text-4xl font-serif">
-                          Your Own Vaults
-                        </div>
-                        <div className="flex justify-end">
-                          <Plus className="w-6 h-6 text-stone-100 opacity-100" />
-                        </div>
-                      </div>
-                    </InteractiveCard>
-                  </div>
-                </div>
-              </div>
+      {/* Footer */}
+      <div className="w-full bg-[#121212]">
+        <div className="max-w-full mx-auto px-6 lg:px-16">
+          <div className="flex justify-between items-center py-5">
+            <div className="text-xs text-white"> 2023 Unison - All rights reserved.</div>
+            <div className="flex space-x-4">
+              <a target="_blank" rel="noopener noreferrer" href="https://docs.unison.gg" className="text-xs text-white hover:text-white">
+                docs
+              </a>
+              <a target="_blank" rel="noopener noreferrer" href="https://discord.gg/unison" className="text-xs text-white hover:text-white">
+                discord
+              </a>
             </div>
           </div>
         </div>
-        {/** Footer */}
-        <div className="w-full mt-auto bg-[#121212]">
-          <div className="max-w-full mx-auto px-6 lg:px-16">
-            <div className="flex justify-between items-center py-5">
-              <div className="text-xs text-white"> 2023 Unison - All rights reserved.</div>
-              <div className="flex space-x-4">
-                <a target="_blank" rel="noopener noreferrer" href="https://docs.unison.gg" className="text-xs text-white hover:text-white">
-                  docs
-                </a>
-                <a target="_blank" rel="noopener noreferrer" href="https://discord.gg/unison" className="text-xs text-white hover:text-white">
-                  discord
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      </div>
     </main>
   )
 }
