@@ -77,7 +77,7 @@ const Header = memo(() => {
           <div className="relative">
             <Link
               href="#"
-              className="inline-flex items-center justify-center bg-[var(--beige)] px-4 py-2 text-black hover:opacity-90 transition-colors border border-black text-sm rounded-md h-[42px] lg:h-[50px]"
+              className="inline-flex items-center justify-center bg-gradient-to-bl from-zinc-700 to-zinc-900 hover:from-zinc-900 hover:to-zinc-700 px-4 py-2 text-black border border-gray-500 text-sm rounded-md h-[42px] lg:h-[45px]"
               onMouseEnter={handleMouseEnter}
               onMouseLeave={handleMouseLeave}
             >

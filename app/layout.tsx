@@ -18,10 +18,18 @@ const kodchasan = Kodchasan({
 })
 
 export const metadata = {
-  title: "UNISON - Asset Management & Yield Protocol",
+  title: "Unison - Asset Management & Yield Protocol",
   description: "UNISON is an asset management and yield protocol for issuers, managers, and individuals.",
-    generator: 'v0.dev'
+  icons: {
+    icon: [
+      { url: "/favicon.png", sizes: "16x16" },
+      { url: "/favicon.png", sizes: "32x32" },
+    ],
+    shortcut: [{ url: "/favicon.png" }],
+    apple: [{ url: "/favicon.png", sizes: "180x180" }],
+  },
 }
+  
 
 export default function RootLayout({
   children,

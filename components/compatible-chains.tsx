@@ -56,7 +56,7 @@ const CompatibleChains = memo(function CompatibleChains() {
       <div className="flex flex-wrap justify-center items-center gap-4 md:gap-8 lg:gap-12">
         {/* Ethereum */}
         <div
-          className="opacity-60 hover:opacity-100 transition-opacity relative"
+          className="opacity-90 hover:opacity-100 transition-opacity relative"
           onMouseEnter={() => showTooltip("Ethereum")}
           onMouseLeave={hideTooltip}
         >
@@ -70,7 +70,7 @@ const CompatibleChains = memo(function CompatibleChains() {
           </svg>
           {activeTooltip === "Ethereum" && (
             <div
-              className={`absolute left-1/2 -bottom-8 bg-white !text-black text-xs px-2 py-1 rounded-md whitespace-nowrap z-10 border-[1.5px] border-black ${isLeaving ? "animate-tooltip-fade-out" : "animate-tooltip-fade-in"}`}
+              className={`absolute left-1/2 -bottom-8 bg-white !text-black text-xs px-2 py-1 rounded-md whitespace-nowrap z-10 ${isLeaving ? "animate-tooltip-fade-out" : "animate-tooltip-fade-in"}`}
               style={{ transform: "translateX(-50%)" }}
             >
               Ethereum
@@ -105,7 +105,7 @@ const CompatibleChains = memo(function CompatibleChains() {
           </svg>
           {activeTooltip === "Optimism" && (
             <div
-              className={`absolute left-1/2 -bottom-8 bg-white !text-black text-xs px-2 py-1 rounded-md whitespace-nowrap z-10 border-[1.5px] border-black ${isLeaving ? "animate-tooltip-fade-out" : "animate-tooltip-fade-in"}`}
+              className={`absolute left-1/2 -bottom-8 bg-white !text-black text-xs px-2 py-1 rounded-md whitespace-nowrap z-10 ${isLeaving ? "animate-tooltip-fade-out" : "animate-tooltip-fade-in"}`}
               style={{ transform: "translateX(-50%)" }}
             >
               Optimism
@@ -135,7 +135,7 @@ const CompatibleChains = memo(function CompatibleChains() {
           </svg>
           {activeTooltip === "Base" && (
             <div
-              className={`absolute left-1/2 -bottom-8 bg-white !text-black text-xs px-2 py-1 rounded-md whitespace-nowrap z-10 border-[1.5px] border-black ${isLeaving ? "animate-tooltip-fade-out" : "animate-tooltip-fade-in"}`}
+              className={`absolute left-1/2 -bottom-8 bg-white !text-black text-xs px-2 py-1 rounded-md whitespace-nowrap z-10 ${isLeaving ? "animate-tooltip-fade-out" : "animate-tooltip-fade-in"}`}
               style={{ transform: "translateX(-50%)" }}
             >
               Base
@@ -148,7 +148,7 @@ const CompatibleChains = memo(function CompatibleChains() {
           className="opacity-90 hover:opacity-100 transition-opacity relative"
           onMouseEnter={() => showTooltip("Berachain")}
           onMouseLeave={hideTooltip}
-          style={{ color: "rgb(121,73,44)" }}
+          style={{ color: "rgb(121,73,44)", margin: "2px" }}
         >
           <svg width="28" height="28" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
             <circle cx="40" cy="40" r="40" fill="currentColor" />
@@ -163,7 +163,7 @@ const CompatibleChains = memo(function CompatibleChains() {
           </svg>
           {activeTooltip === "Berachain" && (
             <div
-              className={`absolute left-1/2 -bottom-8 bg-white !text-black text-xs px-2 py-1 rounded-md whitespace-nowrap z-10 border-[1.5px] border-black ${isLeaving ? "animate-tooltip-fade-out" : "animate-tooltip-fade-in"}`}
+              className={`absolute left-1/2 -bottom-8 bg-white !text-black text-xs px-2 py-1 rounded-md whitespace-nowrap z-10 ${isLeaving ? "animate-tooltip-fade-out" : "animate-tooltip-fade-in"}`}
               style={{ transform: "translateX(-50%)" }}
             >
               Berachain
@@ -189,7 +189,7 @@ const CompatibleChains = memo(function CompatibleChains() {
           </svg>
           {activeTooltip === "Solana" && (
             <div
-              className={`absolute left-1/2 -bottom-8 bg-white !text-black text-xs px-2 py-1 rounded-md whitespace-nowrap z-10 border-[1.5px] border-black ${isLeaving ? "animate-tooltip-fade-out" : "animate-tooltip-fade-in"}`}
+              className={`absolute left-1/2 -bottom-8 bg-white !text-black text-xs px-2 py-1 rounded-md whitespace-nowrap z-10 ${isLeaving ? "animate-tooltip-fade-out" : "animate-tooltip-fade-in"}`}
               style={{ transform: "translateX(-50%)" }}
             >
               Solana
@@ -217,7 +217,7 @@ const CompatibleChains = memo(function CompatibleChains() {
           </svg>
           {activeTooltip === "Polygon" && (
             <div
-              className={`absolute left-1/2 -bottom-8 bg-white !text-black text-xs px-2 py-1 rounded-md whitespace-nowrap z-10 border-[1.5px] border-black ${isLeaving ? "animate-tooltip-fade-out" : "animate-tooltip-fade-in"}`}
+              className={`absolute left-1/2 -bottom-8 bg-white !text-black text-xs px-2 py-1 rounded-md whitespace-nowrap z-10 ${isLeaving ? "animate-tooltip-fade-out" : "animate-tooltip-fade-in"}`}
               style={{ transform: "translateX(-50%)" }}
             >
               Sonic

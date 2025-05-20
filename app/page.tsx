@@ -2,11 +2,12 @@
 
 import { useState, useEffect, useCallback, useRef, memo } from "react"
 import Link from "next/link"
-import { Plus, DollarSign, Bitcoin, X } from "lucide-react"
+import { Plus, DollarSign, Bitcoin, X, CircleDollarSign } from "lucide-react"
 import InteractiveCard from "@/components/interactive-card"
 import GameOfLife from "@/components/game-of-life"
 import CompatibleChains from "@/components/compatible-chains"
 import { useIsMobile } from "@/hooks/use-mobile"
+import { supabase } from "@/lib/supabase"
 
 // Utility function for debouncing
 function debounce<T extends (...args: any[]) => any>(func: T, wait: number): (...args: Parameters<T>) => void {
@@ -61,13 +62,18 @@ NavigationDots.displayName = "NavigationDots"
 // Main component
 export default function Home() {
   // Constants
-  const TOTAL_SECTIONS = 5
+  const TOTAL_SECTIONS = 4
 
   // State
   const [openAccordion, setOpenAccordion] = useState<number | null>(0)
   const [activeTab, setActiveTab] = useState("individuals")
   const [hasTabSwitched, setHasTabSwitched] = useState(false)
   const [activeSection, setActiveSection] = useState(0)
+  const [email, setEmail] = useState("")
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitError, setSubmitError] = useState<string | null>(null)
+  const [submitSuccess, setSubmitSuccess] = useState(false)
+  const [alreadyJoined, setAlreadyJoined] = useState(false)
 
   // Refs
   const sectionsRef = useRef<(HTMLElement | null)[]>([])
@@ -152,6 +158,53 @@ export default function Home() {
     setOpenAccordion((prev) => (prev === index ? null : index))
   }, [])
 
+  useEffect(() => {
+    if (submitSuccess || alreadyJoined) {
+      const timer = setTimeout(() => {
+        setSubmitSuccess(false)
+        setAlreadyJoined(false)
+      }, 3000)
+
+      return () => clearTimeout(timer)
+    }
+  }, [submitSuccess, alreadyJoined])
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    setIsSubmitting(true)
+    setSubmitError(null)
+    setAlreadyJoined(false)
+    
+    try {
+      // First check if email exists
+      const { data: existingEmails } = await supabase
+        .from('waitlist')
+        .select('email')
+        .eq('email', email)
+        .limit(1)
+
+      if (existingEmails && existingEmails.length > 0) {
+        setAlreadyJoined(true)
+        setIsSubmitting(false)
+        return
+      }
+
+      // If email doesn't exist, insert it
+      const { error } = await supabase
+        .from('waitlist')
+        .insert([{ email, created_at: new Date().toISOString() }])
+
+      if (error) throw error
+
+      setSubmitSuccess(true)
+    } catch (error) {
+      setSubmitError(error instanceof Error ? error.message : "Failed to submit email")
+      setSubmitSuccess(false)
+    } finally {
+      setIsSubmitting(false)
+    }
+  }
+
   return (
     <main className="min-h-screen">
       {/* Hero Section */}
@@ -171,24 +224,49 @@ export default function Home() {
                 <div className="max-w-xl mx-auto w-full">
                   <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl font-serif mb-3 lg:mb-6 leading-tight">
                     <span className="block font-serif">Asset Management & Yield Protocol</span>
-                    <span className="block text-[70%] sm:text-[75%] text-black/70 mt-2">
+                    <span className="block text-[70%] sm:text-[75%] text-black/70 mt-4">
                       For Issuers, Managers & You.
                     </span>
                   </h1>
 
-                  <form className="flex flex-col sm:flex-row gap-2 w-full mb-2 sm:mb-4">
+                  <form onSubmit={handleSubmit} className="relative mt-8 max-w-md">
                     <input
                       type="email"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
                       placeholder="Enter your email"
-                      className="flex-grow px-4 py-2 border border-black text-sm lg:text-base bg-white h-[42px] lg:h-[50px] rounded-md"
                       required
+                      className="w-full px-4 py-3 text-sm border border-black/30 rounded-md focus:outline-none focus:ring-2 focus:ring-black/50"
+                      disabled={isSubmitting}
                     />
                     <button
                       type="submit"
-                      className="inline-flex items-center justify-center px-4 py-2 lg:px-6 text-white border border-white/20 text-sm lg:text-base whitespace-nowrap h-[42px] lg:h-[50px] rounded-md"
+                      disabled={isSubmitting || submitSuccess || alreadyJoined}
+                      className={`mt-4 w-full border border-gray-500/50 ${
+                        submitSuccess || alreadyJoined 
+                          ? "bg-gradient-to-r from-red-500 to-orange-500"
+                          : "bg-gradient-to-bl from-zinc-700 to-zinc-900 hover:from-zinc-900 hover:to-zinc-700"
+                      } text-white px-6 py-3 rounded-md text-sm font-medium transition-opacity ${
+                        (isSubmitting || submitSuccess || alreadyJoined) ? "opacity-100 cursor-not-allowed" : "hover:opacity-100"
+                      }`}
                     >
-                      <span className="flex items-center">Join Waitlist</span>
+                      {isSubmitting ? (
+                        <span className="flex items-center justify-center">
+                          <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                            <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                            <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                          </svg>
+                          Joining...
+                        </span>
+                      ) : alreadyJoined ? (
+                        "Already Joined"
+                      ) : submitSuccess ? (
+                        "Joined"
+                      ) : (
+                        "Join Waitlist"
+                      )}
                     </button>
+                  
                   </form>
 
                   <div className="-mt-4 sm:mt-0">
@@ -220,7 +298,7 @@ export default function Home() {
         <div className="w-full py-12 lg:py-16 px-6 lg:px-16">
           <div className="max-w-6xl mx-auto">
             <div className="mb-2 text-sm uppercase">BENEFITS</div>
-            <div className="w-16 h-px bg-black mb-6"></div>
+            <div className="w-16 h-0.5 bg-[var(--decor)] mb-6"></div>
 
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif mb-10 lg:mb-16">
               Providing you with the best of DeFi
@@ -345,9 +423,8 @@ export default function Home() {
               </button>
               <button
                 onClick={() => switchTab("institutions")}
-                className={`text-sm uppercase relative ${
-                  activeTab === "institutions" ? "font-bold" : "hover:opacity-70"
-                }`}
+                className={`text-sm uppercase relative ${activeTab === "institutions" ? "font-bold" : "hover:opacity-70"
+                  }`}
               >
                 For Institutions
                 {activeTab === "institutions" && <div className="absolute -bottom-2 left-0 w-full h-px bg-white"></div>}
@@ -432,7 +509,8 @@ export default function Home() {
                             fill="none"
                             xmlns="http://www.w3.org/2000/svg"
                           >
-                            <path d="M4 12H12M20 12H12M12 12V4M12 12V20" stroke="white" strokeWidth="1.5" />
+                            <path d="M12 8V16" stroke="white" strokeWidth="1.5" />
+                            <path d="M8 12H16" stroke="white" strokeWidth="1.5" />
                             <path d="M7 7L17 17" stroke="white" strokeWidth="1.5" />
                           </svg>
                         </div>
@@ -526,23 +604,23 @@ export default function Home() {
       {/* Process Section - Updated with responsive cards for mobile */}
       <section
         ref={(el) => (sectionsRef.current[3] = el)}
-        className="min-h-screen w-full flex items-center bg-[var(--background)]"
+        className="h-screen w-full flex flex-col justify-between bg-[var(--background)]"
       >
-        <div className="w-full py-12 lg:py-16 px-6 lg:px-16">
-          <div className="max-w-6xl mx-auto">
+       <div className="w-full flex-grow flex items-center px-6 lg:px-16 py-12 lg:py-16">
+          <div className="max-w-6xl mx-auto w-full">
             <div>
               {/* Section heading */}
-              <div className="mb-10">
-                <div className="mb-2 text-sm uppercase" style={{ color: "var(--foreground)", transition: "none" }}>
+              <div className="mb-6">
+                <div className="mb-1 text-sm uppercase" style={{ color: "var(--foreground)", transition: "none" }}>
                   VAULTS
                 </div>
-                <div className="w-16 h-px bg-black mb-6"></div>
+                <div className="w-16 h-px bg-black mb-4"></div>
               </div>
 
               {/* Content area with heading and cards side by side */}
-              <div className="flex flex-col lg:flex-row items-start gap-6">
+              <div className="flex flex-col lg:flex-row items-start gap-8">
                 {/* Left column with subheading */}
-                <div className="lg:w-1/3">
+                <div className="lg:w-1/3 mb-8 lg:mb-0">
                   <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-serif leading-tight text-[var(--foreground)]">
                     Earn yield on your assets
                   </h2>
@@ -554,85 +632,95 @@ export default function Home() {
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mx-0">
                     {/* Stables Card */}
                     <InteractiveCard
-                      className="interactive-card p-4 relative flex flex-col justify-between h-[170px] w-full mx-0 rounded-3xl"
+                      className="interactive-card p-4 relative flex flex-col justify-between h-[170px] w-full mx-0 rounded-3xl bg-gradient-to-tl from-zinc-700 to-zinc-900"
                       style={{
-                        backgroundColor: "#7fd177",
+                        /*backgroundColor: "#7fd177",*/
                         boxShadow: "none",
                         borderRadius: "5px",
-                        /*border: "1px solid #b8d9ff",*/
+                        border: "1px solid rgba(0,0,0,0.1)",
                       }}
                     >
                       <div>
-                        <div className="text-[var(--foreground)] text-lg sm:text-xl md:text-2xl font-serif mb-1">
+                        <div className="text-stone-100 text-lg sm:text-xl md:text-2xl font-serif mb-1">
                           Stables
                         </div>
-                        <h3 className="text-[var(--foreground)] text-xl sm:text-2xl md:text-3xl font-bold mb-0 tracking-tight">
-                          13-18%<sup>*</sup>
+                        <h3 className="text-stone-100 text-xl sm:text-2xl md:text-3xl font-bold mb-0 tracking-tight mt-6">
+                          13 — 18%<sup className="opacity-50">*</sup>
                         </h3>
-                        <p className="text-[var(--foreground)] opacity-70 text-xs italic">
-                          *based on last 3 months data
-                        </p>
                       </div>
                       <div className="flex justify-end">
-                        <DollarSign className="w-6 h-6 text-[var(--foreground)] opacity-30" />
+                        <DollarSign
+                          strokeWidth={1.25}
+                          className="w-12 h-12 text-stone-100 opacity-20"
+                        />
                       </div>
                     </InteractiveCard>
 
                     {/* Ethereum Card */}
                     <InteractiveCard
-                      className="interactive-card p-4 relative flex flex-col justify-between h-[170px] w-full mx-0 rounded-3xl"
+                      className="interactive-card p-4 relative flex flex-col justify-between h-[170px] w-full mx-0 bg-gradient-to-tr from-zinc-700 to-zinc-900"
                       style={{
-                        backgroundColor: "#739cf5",
+                        /*backgroundColor: "#739cf5",*/
                         boxShadow: "none",
                         borderRadius: "5px",
-                        /*border: "1px solid #d0d0d0",*/
+                        border: "1px solid rgba(0,0,0,0.1)",
                       }}
                     >
                       <div>
-                        <div className="text-[var(--foreground)] text-lg sm:text-xl md:text-2xl font-serif mb-1">
+                        <div className="text-stone-100 text-lg sm:text-xl md:text-2xl font-serif mb-1">
                           Ethereum
                         </div>
-                        <h3 className="text-[var(--foreground)] text-xl sm:text-2xl md:text-3xl font-bold mb-0 tracking-tight">
-                          8-12%<sup>*</sup>
+                        <h3 className="text-stone-100 text-xl sm:text-2xl md:text-3xl font-bold mb-0 tracking-tight mt-6">
+                          8 — 12%<sup className="opacity-50">*</sup>
                         </h3>
-                        <p className="text-[var(--foreground)] opacity-70 text-xs italic">
-                          *based on last 3 months data
-                        </p>
                       </div>
                       <div className="flex justify-end">
-                        <span className="text-[var(--foreground)] opacity-30 text-2xl font-bold">Ξ</span>
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="1"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          className="w-12 h-12 text-white opacity-20"
+                        >
+                          <path d="M12 2L4 12.5L12 16" />
+                          <path d="M12 2L20 12.5L12 16" />
+                          <path d="M4 12.5L12 22L20 12.5" />
+                          <path d="M12 16L12 22" />
+                        </svg>
                       </div>
                     </InteractiveCard>
 
                     {/* Bitcoin Card */}
                     <InteractiveCard
-                      className="interactive-card p-4 relative flex flex-col justify-between h-[170px] w-full mx-0 rounded-3xl"
+                      className="interactive-card p-4 relative flex flex-col justify-between h-[170px] w-full mx-0 bg-gradient-to-bl from-zinc-700 to-zinc-900"
                       style={{
                         backgroundColor: "#f2b035",
                         boxShadow: "none",
                         borderRadius: "5px",
-                        /*border: "1px solid #ffd9a3",*/
+                        border: "1px solid rgba(0,0,0,0.1)",
                       }}
                     >
                       <div>
-                        <div className="text-[var(--foreground)] text-lg sm:text-xl md:text-2xl font-serif mb-1">
+                        <div className="text-stone-100 text-lg sm:text-xl md:text-2xl font-serif mb-1">
                           Bitcoin
                         </div>
-                        <h3 className="text-[var(--foreground)] text-xl sm:text-2xl md:text-3xl font-bold mb-0 tracking-tight">
-                          5-9%<sup>*</sup>
+                        <h3 className="text-stone-100 text-xl sm:text-2xl md:text-3xl font-bold mb-0 tracking-tight mt-6">
+                          5 — 9%<sup className="opacity-50">*</sup>
                         </h3>
-                        <p className="text-[var(--foreground)] opacity-70 text-xs italic">
-                          *based on last 3 months data
-                        </p>
                       </div>
                       <div className="flex justify-end">
-                        <Bitcoin className="w-6 h-6 text-[var(--foreground)] opacity-30" />
+                        <Bitcoin className="w-12 h-12 text-stone-100 opacity-20"
+                          strokeWidth={1.25}
+                        />
                       </div>
                     </InteractiveCard>
 
                     {/* Your Favorite Assets Card */}
                     <InteractiveCard
-                      className="interactive-card p-4 relative flex flex-col justify-between h-[170px] w-full mx-0 rounded-3xl"
+                      className="interactive-card p-4 relative flex flex-col justify-between h-[170px] w-full mx-0 bg-gradient-to-br from-zinc-700 to-zinc-900"
                       style={{
                         backgroundColor: "var(--card-bg)",
                         boxShadow: "none",
@@ -641,11 +729,11 @@ export default function Home() {
                       }}
                     >
                       <div className="flex flex-col justify-between h-full">
-                        <div className="text-[var(--foreground)] text-2xl sm:text-3xl md:text-4xl font-serif">
+                        <div className="text-stone-100 text-2xl sm:text-3xl md:text-4xl font-serif">
                           Your Own Vaults
                         </div>
                         <div className="flex justify-end">
-                          <Plus className="w-6 h-6 text-[var(--foreground)] opacity-30" />
+                          <Plus className="w-6 h-6 text-stone-100 opacity-100" />
                         </div>
                       </div>
                     </InteractiveCard>
@@ -655,140 +743,19 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </section>
-
-      {/* FAQ + Footer Section */}
-      <section
-        ref={(el) => (sectionsRef.current[4] = el)}
-        className="min-h-screen w-full flex flex-col bg-[var(--background)]"
-      >
-        {/* FAQ Content - Centered in viewport */}
-        <div className="flex-1 flex items-center">
-          <div className="w-full px-4 sm:px-6 lg:px-16 py-16 sm:py-20 md:py-24">
-            <div className="max-w-6xl mx-auto">
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-24">
-                <div>
-                  <div className="mb-2 text-sm uppercase">FAQS</div>
-                  <div className="w-16 h-px bg-black mb-6"></div>
-                  <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-serif mb-8">Got some questions?</h2>
-                </div>
-
-                <div className="space-y-4 sm:space-y-6">
-                  {[
-                    {
-                      title: "How long does the design process take?",
-                      content:
-                        "The timeline varies depending on scope and complexity. Brand design takes about 4-6 weeks, website design 6-8 weeks, and combined projects typically 8-12 weeks.",
-                    },
-                    {
-                      title: "What do I need to provide before starting?",
-                      content:
-                        "To get started, we'll need your project goals, target audience information, brand guidelines (if available), and any specific requirements or preferences you have for the project.",
-                    },
-                    {
-                      title: "Can I make revisions during the process?",
-                      content:
-                        "Yes, revisions are an integral part of our collaborative process. Each project includes dedicated revision rounds to ensure the final result meets your expectations.",
-                    },
-                  ].map((faq, index) => (
-                    <div key={index} className="group border-b border-black/30 pb-4">
-                      <button
-                        onClick={() => toggleAccordion(index)}
-                        className="w-full flex justify-between items-center py-2 text-left focus:outline-none"
-                        aria-expanded={openAccordion === index}
-                      >
-                        <h3 className="text-base lg:text-lg font-medium pr-4">{faq.title}</h3>
-                        <div
-                          className={`transition-transform duration-200 flex-shrink-0 ${openAccordion === index ? "rotate-45" : ""}`}
-                        >
-                          <Plus className="w-4 h-4" />
-                        </div>
-                      </button>
-                      <div
-                        className={`overflow-hidden transition-all duration-300 ease-in-out ${
-                          openAccordion === index ? "max-h-40 opacity-100" : "max-h-0 opacity-0"
-                        }`}
-                      >
-                        <p className="text-sm text-black/70 pt-2 pb-1">{faq.content}</p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Footer - Black background at bottom */}
-        <div className="w-full bg-black text-white py-6 sm:py-8 px-4 sm:px-6 lg:px-16">
-          <div className="max-w-6xl mx-auto">
-            <div className="flex flex-col md:flex-row justify-between items-center">
-              <div className="mb-6 md:mb-0">
-                <nav className="flex flex-wrap justify-center md:justify-start gap-4 sm:gap-6">
-                  <Link href="/" className="text-sm text-white/80 hover:text-white">
-                    HOME
-                  </Link>
-                  <Link href="/about" className="text-sm text-white/80 hover:text-white">
-                    ABOUT
-                  </Link>
-                  <Link href="/projects" className="text-sm text-white/80 hover:text-white">
-                    PROJECTS
-                  </Link>
-                </nav>
-              </div>
-
+        {/** Footer */}
+        <div className="w-full mt-auto bg-[#121212]">
+          <div className="max-w-full mx-auto px-20 lg:px-16">
+            <div className="flex justify-between items-center py-5">
+              <div className="text-xs text-white"> 2023 Unison - All rights reserved.</div>
               <div className="flex space-x-4">
-                <Link
-                  href="#"
-                  className="w-8 h-8 rounded-full border border-white/40 flex items-center justify-center hover:bg-white hover:text-black transition-colors"
-                  aria-label="X (Twitter)"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="16"
-                    height="16"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    className="lucide lucide-twitter-x"
-                    aria-hidden="true"
-                  >
-                    <path
-                      d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"
-                      stroke="none"
-                      fill="currentColor"
-                    ></path>
-                  </svg>
-                </Link>
-                <Link
-                  href="#"
-                  className="w-8 h-8 rounded-full border border-white/40 flex items-center justify-center hover:bg-white hover:text-black transition-colors"
-                  aria-label="Discord"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="16"
-                    height="16"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="lucide lucide-discord"
-                    aria-hidden="true"
-                  >
-                    <circle cx="9" cy="12" r="1" />
-                    <circle cx="15" cy="12" r="1" />
-                    <path d="M7.5 7.5c3.5-1 5.5-1 9 0" />
-                    <path d="M7 16.5c3.5 1 6.5 1 10 0" />
-                    <path d="M15.5 17c0 1 1.5 3 2 3 1.5 0 2.833-1.667 3.5-3 .667-1.667.5-5.833-1.5-11.5-1.457-1.015-3-1.34-4.5-1.5l-1 2.5" />
-                    <path d="M8.5 17c0 1-1.356 3-1.832 3-1.429 0-2.698-1.667-3.333-3-.635-1.667-.48-5.833 1.428-11.5C6.151 4.485 7.545 4.16 9 4l1 2.5" />
-                  </svg>
-                </Link>
+                <a target="_blank" rel="noopener noreferrer" href="https://docs.unison.gg" className="text-xs text-white hover:text-white">
+                  docs
+                </a>
+                <a target="_blank" rel="noopener noreferrer" href="https://discord.gg/unison" className="text-xs text-white hover:text-white">
+                  discord
+                </a>
               </div>
-            </div>
-            <div className="text-xs text-center md:text-left mt-6 text-white/60">
-              © {new Date().getFullYear()} UNISON. All rights reserved.
             </div>
           </div>
         </div>

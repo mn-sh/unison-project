@@ -9,6 +9,11 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      textShadow: {
+        'default': '0 2px 4px var(--tw-shadow-color)',
+        'lg': '0 8px 16px var(--tw-shadow-color)',
+        '2xs': '0 1px 2px var(--tw-shadow-color)',
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -80,6 +85,8 @@ const config: Config = {
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [require("tailwindcss-animate"),
+    require('tailwindcss-textshadow'),
+  ],
 }
 export default config
