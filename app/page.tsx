@@ -744,15 +744,15 @@ export default function Home() {
       <div className="w-full">
         <div className="max-w-full mx-auto px-6 lg:px-16 pb-6">
           <div className="flex justify-between items-center py-5 px-4 lg:px-8  border border-gray-500 border-opacity-25">
-            <div className="text-base text-white"> 2025 Unison - All rights reserved.</div>
+            <div className="text-xs text-white"> 2025 Unison - All rights reserved.</div>
             <div className="flex space-x-4">
-              <a target="_blank" rel="noopener noreferrer" href="https://docs.unison.gg" className="text-base text-white hover:text-white">
+              <a target="_blank" rel="noopener noreferrer" href="https://docs.unison.gg" className="text-xs text-white hover:text-white">
                 docs
               </a>
-              <a target="_blank" rel="noopener noreferrer" href="https://twitter.com/unison_gg" className="text-base text-white hover:text-white">
+              <a target="_blank" rel="noopener noreferrer" href="https://twitter.com/unison_gg" className="text-xs text-white hover:text-white">
                 X / twitter
               </a>
-              <a target="_blank" rel="noopener noreferrer" href="https://discord.gg/aQJQhUhG" className="text-base text-white hover:text-white">
+              <a target="_blank" rel="noopener noreferrer" href="https://discord.gg/aQJQhUhG" className="text-xs text-white hover:text-white">
                 discord
               </a>
             </div>
