@@ -2,6 +2,7 @@ import type React from "react"
 import "./globals.css"
 import { Instrument_Serif, Kodchasan } from "next/font/google"
 import Header from "@/components/header"
+import { Analytics } from "@vercel/analytics/next"
 
 const instrumentSerif = Instrument_Serif({
   subsets: ["latin"],
@@ -45,6 +46,7 @@ export default function RootLayout({
       <body className={`${instrumentSerif.variable} ${kodchasan.variable}`}>
         <Header />
         {children}
+        <Analytics />
       </body>
     </html>
   )
