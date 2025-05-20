@@ -224,7 +224,7 @@ export default function Home() {
                 <div className="max-w-xl mx-auto w-full">
                   <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl font-serif mb-3 lg:mb-6 leading-tight">
                     <span className="block font-serif">Asset Management & Yield Protocol</span>
-                    <span className="block text-[70%] sm:text-[75%] text-black/70 mt-4">
+                    <span className="block text-[60%] sm:text-[50%] text-black/90 mt-4 font-alte-haas">
                       For Issuers, Managers & You.
                     </span>
                   </h1>
