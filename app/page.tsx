@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useCallback, useRef, memo } from "react"
 import Link from "next/link"
-import { Plus, DollarSign, Bitcoin, X, CircleDollarSign } from "lucide-react"
+import { Plus, DollarSign, Bitcoin, X } from "lucide-react"
 import InteractiveCard from "@/components/interactive-card"
 import GameOfLife from "@/components/game-of-life"
 import CompatibleChains from "@/components/compatible-chains"
@@ -297,7 +297,7 @@ export default function Home() {
               <div className="mb-1 text-sm uppercase" style={{ color: "var(--foreground)", transition: "none" }}>
                 PUBLIC VAULTS
               </div>
-              <div className="w-[110px] h-px bg-[var(--decor)] mb-4"></div>
+              <div className="w-[110px] h-0.5 bg-[var(--decor)] mb-4"></div>
             </div>
 
             {/* Content area with heading and cards side by side */}
