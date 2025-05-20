@@ -105,7 +105,7 @@ const GameOfLife = memo(({ onReset, isMobile = false, isVisible = true }: GameOf
   }, [initializeGrid, onReset])
 
   return (
-    <div className={`w-full relative ${isMobile ? "h-[200px]" : "h-full"}`}>
+    <div className={`w-full relative ${isMobile ? "h-[220px]" : "h-full"}`}>
       <button
         onClick={handleReset}
         className="absolute bottom-2 right-2 z-10 p-2 bg-transparent text-[#222222] opacity-30 hover:opacity-70 transition-opacity"

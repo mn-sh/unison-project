@@ -5,6 +5,7 @@
 /* Default Theme */
 :root {
   --background: rgb(235, 233, 228);
+  --subheading-text: rgba(0, 0, 0, 0.8);
   --foreground: #222222;
   --accent: #f8f3a3;
   --card: 0 0% 100%;
@@ -24,6 +25,7 @@
   --ring: 0 0% 3.9%;
   --radius: 0.5rem;
   --decor: #282828;
+  --text-box-bg: rgba(255, 255, 255, 0.2);
   /* Base color */
   --beige: rgb(235, 233, 228);
   --cell-alive: rgba(34, 34, 34, 0.15);
@@ -48,8 +50,10 @@
 .theme-dark {
   --background: #121212;
   --foreground: #ffffff;
+  --subheading-text: rgba(255, 255, 255, 0.8);
   --accent: rgb(187, 105, 58);
   --decor: #facc15;
+  --text-box-bg: rgba(47, 47, 47, 0.2);
   --beige: #121212;
   --cell-alive: rgba(255, 255, 255, 0.2);
   --card-bg: #1e1e1e;
@@ -94,6 +98,7 @@
   --input: 0 0% 14.9%;
   --ring: 0 0% 83.1%;
   --decor: #facc15;
+  --text-box-bg: rgba(47, 47, 47, 0.2);
 }
 
 @layer base {

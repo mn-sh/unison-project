@@ -174,7 +174,7 @@ export default function Home() {
     setIsSubmitting(true)
     setSubmitError(null)
     setAlreadyJoined(false)
-    
+
     try {
       // First check if email exists
       const { data: existingEmails } = await supabase
@@ -222,11 +222,13 @@ export default function Home() {
                 )}
 
                 <div className="max-w-xl mx-auto w-full">
-                  <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl font-serif mb-3 lg:mb-6 leading-tight">
+                  <h1 className="text-4xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl font-serif mb-3 lg:mb-6 tracking-normal">
                     <span className="block font-serif">Asset Management & Yield Protocol</span>
-                    <span className="block text-[60%] sm:text-[50%] text-black/90 mt-4 font-alte-haas">
-                      For Issuers, Managers & You.
-                    </span>
+                   <div className="bg-[var(--text-box-bg)] text-[var(--subheading-text)] p-2 rounded mt-6 w-full max-w-md">
+                     <span className="block text-[12px] sm:text-[14px] md:text-[14px] lg:text-base font-alte-haas tracking-normal leading-5 sm:leading-6 md:leading-6">
+                       Yield Infrastructure with Chain-Abstraction & Automation for <span className="font-bold">Scalable</span>, <span className="font-bold">Efficient</span>, and <span className="font-bold">Accessible</span> Cross-Chain Vaults and Strategies.
+                     </span>
+                   </div>
                   </h1>
 
                   <form onSubmit={handleSubmit} className="relative mt-8 max-w-md">
@@ -242,13 +244,11 @@ export default function Home() {
                     <button
                       type="submit"
                       disabled={isSubmitting || submitSuccess || alreadyJoined}
-                      className={`mt-4 w-full border border-gray-500/50 h-[42px] lg:h-[45px] ${
-                        submitSuccess || alreadyJoined 
+                      className={`mt-4 w-full border border-gray-500/50 h-[42px] lg:h-[45px] ${submitSuccess || alreadyJoined
                           ? "bg-gradient-to-r from-red-500 to-orange-500"
                           : "bg-gradient-to-bl from-zinc-700 to-zinc-900 hover:from-zinc-900 hover:to-zinc-700"
-                      } text-white px-6 py-3 rounded-md text-sm font-medium transition-opacity ${
-                        (isSubmitting || submitSuccess || alreadyJoined) ? "opacity-100 cursor-not-allowed" : "hover:opacity-100"
-                      }`}
+                        } text-white px-6 py-3 rounded-md text-sm font-medium transition-opacity ${(isSubmitting || submitSuccess || alreadyJoined) ? "opacity-100 cursor-not-allowed" : "hover:opacity-100"
+                        }`}
                     >
                       {isSubmitting ? (
                         <span className="flex items-center justify-center">
@@ -266,7 +266,7 @@ export default function Home() {
                         "Join Waitlist"
                       )}
                     </button>
-                  
+
                   </form>
 
                   <div className="-mt-4 sm:mt-0">
@@ -305,7 +305,7 @@ export default function Home() {
               {/* Left column with subheading */}
               <div className="lg:w-1/3 mb-8 lg:mb-0">
                 <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-serif leading-tight text-[var(--foreground)]">
-                  Best in class yield, on any chain.
+                  Best in class yield,<br/> at scale.
                 </h2>
               </div>
 
