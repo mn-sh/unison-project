@@ -105,18 +105,23 @@ const Header = memo(() => {
           </button>
         </div>
       </header>
-      {/* Beta notification pill */}
-      <div className="fixed top-[6rem] sm:top-[6rem] md:top-[6rem] lg:top-[8rem] left-0 right-0 z-10 flex justify-center">
-        <div className="relative">
-          <div
-            className="bg-gradient-to-bl from-zinc-700 to-zinc-900 hover:from-zinc-900 hover:to-zinc-700 text-white text-xs py-1 px-4 rounded-full border border-gray-500 cursor-pointer hover:opacity-90 transition-opacity relative z-10"
-            style={{ boxShadow: "0 0 10px rgba(0, 0, 0, 0.4), 0 0 15px rgba(255, 255, 255, 0.2)" }}
-            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-          >
-            Join Waitlist for Beta Access!
+      {/* Beta Waitlist Pill - Only show when mobile menu is closed */}
+      {!isMenuOpen && (
+        <div className="fixed top-[6rem] sm:top-[6rem] md:top-[6rem] lg:top-[8rem] left-0 right-0 z-10 flex justify-center">
+          <div className="relative">
+            <div
+              className="bg-gradient-to-bl from-zinc-700 to-zinc-900 hover:from-zinc-900 hover:to-zinc-700 text-white text-xs py-1 px-4 rounded-full border border-gray-500 cursor-pointer hover:opacity-90 transition-opacity relative z-10"
+              style={{ boxShadow: "0 0 10px rgba(0, 0, 0, 0.4), 0 0 15px rgba(255, 255, 255, 0.2)" }}
+            >
+              <span className="font-alte-haas">Join Waitlist for Beta Access!</span>
+            </div>
+            <div
+              className="absolute -inset-1  rounded-full blur opacity-50 group-hover:opacity-75 transition duration-300"
+              style={{ zIndex: 1 }}
+            ></div>
           </div>
         </div>
-      </div>
+      )}
     </>
   )
 })
