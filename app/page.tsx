@@ -225,11 +225,11 @@ export default function Home() {
                 <div className="max-w-xl mx-auto w-full">
                   <h1 className="text-4xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl font-serif mb-3 lg:mb-6 tracking-normal">
                     <span className="block font-serif">Asset Management & Yield Protocol</span>
-                   <div className="text-[var(--subheading-text)] p-2 mt-6 w-full max-w-md">
-                     <span className="block text-[12px] sm:text-[14px] md:text-[14px] lg:text-base font-alte-haas tracking-normal leading-5 sm:leading-6 md:leading-6">
-                       Yield Infrastructure with Chain-Abstraction & Automation, for <span className="font-bold">Scalable</span>, <span className="font-bold">Efficient</span>, and <span className="font-bold">Accessible</span> Cross-Chain Vaults and Strategies.
-                     </span>
-                   </div>
+                    <div className="text-[var(--subheading-text)] p-2 mt-6 w-full max-w-md">
+                      <span className="block text-[12px] sm:text-[14px] md:text-[14px] lg:text-base font-alte-haas tracking-normal leading-5 sm:leading-6 md:leading-6">
+                        Yield Infrastructure with Chain-Abstraction & Automation, for <span className="font-bold">Scalable</span>, <span className="font-bold">Efficient</span>, and <span className="font-bold">Accessible</span> Cross-Chain Vaults and Strategies.
+                      </span>
+                    </div>
                   </h1>
 
                   <form onSubmit={handleSubmit} className="relative mt-8 max-w-md">
@@ -246,8 +246,8 @@ export default function Home() {
                       type="submit"
                       disabled={isSubmitting || submitSuccess || alreadyJoined}
                       className={`mt-4 w-full border border-gray-500/50 h-[42px] lg:h-[45px] ${submitSuccess || alreadyJoined
-                          ? "bg-gradient-to-r from-red-500 to-orange-500"
-                          : "bg-gradient-to-bl from-zinc-700 to-zinc-900 hover:from-zinc-900 hover:to-zinc-700"
+                        ? "bg-gradient-to-r from-red-500 to-orange-500"
+                        : "bg-gradient-to-bl from-zinc-700 to-zinc-900 hover:from-zinc-900 hover:to-zinc-700"
                         } text-white px-6 py-3 rounded-md text-sm font-medium transition-opacity ${(isSubmitting || submitSuccess || alreadyJoined) ? "opacity-100 cursor-not-allowed" : "hover:opacity-100"
                         }`}
                     >
@@ -306,7 +306,7 @@ export default function Home() {
               {/* Left column with subheading */}
               <div className="lg:w-1/3 mb-8 lg:mb-0">
                 <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-serif leading-tight text-[var(--foreground)]">
-                  Best in class yield,<br/> at scale.
+                  Best in class yield,<br /> at scale.
                 </h2>
               </div>
 
@@ -615,7 +615,7 @@ export default function Home() {
                         <div>
                           <h3 className="text-xl md:text-2xl font-serif mb-1 md:mb-2">Set and Forget</h3>
                           <p className="text-sm md:text-base">
-                            The best yield with the least amount of work. Deposit from any chain and let Unison handle the rest. 
+                            The best yield with the least amount of work. Deposit from any chain and let Unison handle the rest.
                           </p>
                         </div>
                       </div>
@@ -703,7 +703,7 @@ export default function Home() {
                         <div>
                           <h3 className="text-xl md:text-2xl font-serif mb-1 md:mb-2">Flexible</h3>
                           <p className="text-sm md:text-base">
-                          Private Vaults can be used to manage Protocol Treasuries, launch yield-generating tokens, or run an on-chain fund.
+                            Private Vaults can be used to manage Protocol Treasuries, launch yield-generating tokens, or run an on-chain fund.
                           </p>
                         </div>
                       </div>
@@ -742,13 +742,25 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <div className="w-full font-geist-mono">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8 pb-6">
-          <div className="flex flex-col md:flex-row justify-between items-start md:items-end py-5 px-4 border-t border-white border-opacity-25 !rounded-none">
+      <div className="w-full font-geist-mono font-medium bg-[#ebe9e4]">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8 pb-6 ">
+          <div className="flex flex-col md:flex-row justify-between items-start md:items-end py-5 px-4">
             <div className="flex flex-col space-y-2 mb-4 md:mb-0 w-full md:w-auto">
+              <div className="ml-0 mt-2 mb-4">
+                <svg width="36" height="36" viewBox="0 0 720 720" className="mr-2" aria-hidden="true">
+                  <path
+                    d="M452.672 415.891C462.845 405.719 462.835 389.222 452.65 379.061V379.061C442.48 368.915 426.012 368.928 415.857 379.09L375.431 419.546C342.916 452.085 290.178 452.094 257.651 419.568L144.342 306.259C105.29 267.206 105.29 203.89 144.342 164.837L191.449 117.73C215.805 93.3743 255.294 93.3743 279.65 117.73L305.361 143.442C315.517 153.598 331.983 153.598 342.139 143.442V143.442C352.292 133.288 352.295 116.827 342.145 106.671L298.057 62.5514C263.538 28.0087 207.55 27.999 173.019 62.5297L70.7204 164.828C31.6642 203.885 31.6685 267.209 70.73 306.259L245.84 481.322C284.894 520.365 348.204 520.361 387.252 481.312L452.672 415.891Z"
+                    fill="black"
+                  />
+                  <path
+                    d="M261.177 347.033C271.354 357.211 287.857 357.208 298.031 347.027L341.53 303.497C375.725 269.278 431.189 269.268 465.396 303.475L575.662 413.741C614.714 452.794 614.714 516.11 575.662 555.163L528.555 602.27C504.199 626.626 464.71 626.626 440.354 602.27L414.642 576.558C404.487 566.402 388.021 566.402 377.865 576.558V576.558C367.711 586.712 367.709 603.173 377.858 613.329L421.947 657.449C456.466 691.991 512.454 692.001 546.985 657.47L649.283 555.172C688.34 516.115 688.335 452.791 649.274 413.741L474.144 238.659C435.098 199.623 371.803 199.619 332.752 238.65L261.182 310.181C251.002 320.355 251 336.856 261.177 347.033V347.033Z"
+                    fill="black"
+                  />
+                </svg>
+              </div>
               <div className="relative inline-block">
                 <span
-                  className="text-sm text-white hover:text-white block relative"
+                  className="text-sm !text-black hover:text-black block relative underline underline-offset-4"
                   onMouseEnter={() => setShowAppTooltip(true)}
                   onMouseLeave={() => setShowAppTooltip(false)}
                 >
@@ -761,17 +773,17 @@ export default function Home() {
                   </div>
                 )}
               </div>
-              <a target="_blank" rel="noopener noreferrer" href="https://docs.unison.gg" className="text-sm text-white hover:text-white block">
+              <a target="_blank" rel="noopener noreferrer" href="https://docs.unison.gg" className="text-sm underline underline-offset-4 !text-black hover:text-black block">
                 DOCS
               </a>
-              <a target="_blank" rel="noopener noreferrer" href="https://twitter.com/unison_gg" className="text-sm text-white hover:text-white block">
+              <a target="_blank" rel="noopener noreferrer" href="https://twitter.com/unison_gg" className="text-sm underline underline-offset-4 !text-black hover:text-black block">
                 X/TWITTER
               </a>
-              <a target="_blank" rel="noopener noreferrer" href="https://discord.gg/aQJQhUhG" className="text-sm text-white hover:text-white block">
+              <a target="_blank" rel="noopener noreferrer" href="https://discord.gg/aQJQhUhG" className="text-sm underline underline-offset-4 !text-black hover:text-black block">
                 DISCORD
               </a>
             </div>
-            <div className="text-sm text-white/50 md:text-white mt-0 md:mt-0 self-end">2025 UNISON - ALL RIGHTS RESERVED<sup> </sup></div>
+            <a href="https://unison.gg" className="text-sm !text-black mt-4 md:mt-0 block">2025 UNISON - ALL RIGHTS RESERVED<sup> </sup></a>
           </div>
         </div>
       </div>
