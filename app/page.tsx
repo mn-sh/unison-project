@@ -74,6 +74,7 @@ export default function Home() {
   const [submitError, setSubmitError] = useState<string | null>(null)
   const [submitSuccess, setSubmitSuccess] = useState(false)
   const [alreadyJoined, setAlreadyJoined] = useState(false)
+  const [showAppTooltip, setShowAppTooltip] = useState(false)
 
   // Refs
   const sectionsRef = useRef<(HTMLElement | null)[]>([])
@@ -743,19 +744,34 @@ export default function Home() {
       {/* Footer */}
       <div className="w-full font-geist-mono">
         <div className="max-w-7xl mx-auto px-6 lg:px-8 pb-6">
-          <div className="flex flex-col items-center text-center md:text-left md:flex-row md:justify-between py-5 px-4 border border-gray-500 border-opacity-25">
-            <div className="flex flex-col items-center space-y-2 md:space-y-0 md:space-x-6 md:flex-row">
-              <a target="_blank" rel="noopener noreferrer" href="https://docs.unison.gg" className="text-xs text-white hover:text-white">
+          <div className="flex flex-col md:flex-row justify-between items-start md:items-end py-5 px-4 border-t border-white border-opacity-25 !rounded-none">
+            <div className="flex flex-col space-y-2 mb-4 md:mb-0 w-full md:w-auto">
+              <div className="relative inline-block">
+                <span
+                  className="text-sm text-white hover:text-white block relative"
+                  onMouseEnter={() => setShowAppTooltip(true)}
+                  onMouseLeave={() => setShowAppTooltip(false)}
+                >
+                  APP
+                </span>
+                {showAppTooltip && (
+                  <div className="absolute left-1/2 -translate-x-1/2 bottom-full mb-2 px-3 py-1 bg-black text-white text-xs rounded whitespace-nowrap opacity-90 transition-opacity duration-200 font-geist-mono">
+                    COMING SOON
+                    <div className="absolute left-1/2 -translate-x-1/2 top-full w-0 h-0 border-l-4 border-r-4 border-t-4 border-l-transparent border-r-transparent border-t-black"></div>
+                  </div>
+                )}
+              </div>
+              <a target="_blank" rel="noopener noreferrer" href="https://docs.unison.gg" className="text-sm text-white hover:text-white block">
                 DOCS
               </a>
-              <a target="_blank" rel="noopener noreferrer" href="https://twitter.com/unison_gg" className="text-xs text-white hover:text-white">
-                X / TWITTER
+              <a target="_blank" rel="noopener noreferrer" href="https://twitter.com/unison_gg" className="text-sm text-white hover:text-white block">
+                X/TWITTER
               </a>
-              <a target="_blank" rel="noopener noreferrer" href="https://discord.gg/aQJQhUhG" className="text-xs text-white hover:text-white">
+              <a target="_blank" rel="noopener noreferrer" href="https://discord.gg/aQJQhUhG" className="text-sm text-white hover:text-white block">
                 DISCORD
               </a>
             </div>
-            <div className="text-xs text-white/50 md:text-white mb-1 md:mb-0 mt-5 md:mt-0"> 2025 UNISON - ALL RIGHTS RESERVED<sup> </sup></div>
+            <div className="text-sm text-white/50 md:text-white mt-0 md:mt-0 self-end">2025 UNISON - ALL RIGHTS RESERVED<sup> </sup></div>
           </div>
         </div>
       </div>
