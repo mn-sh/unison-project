@@ -159,9 +159,14 @@ input,
 }
 
 /* Apply Geist Mono to buttons and footer */
-button, .btn, footer {
+button, .btn{
+  font-family: var(--font-geist-mono), monospace;
+  font-weight: 400;
+}
+footer{
   font-family: var(--font-geist-mono), monospace;
 }
+
 
 /* Headings */
 h1.font-serif,
