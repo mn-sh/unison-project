@@ -1,13 +1,15 @@
 "use client"
 
 import Link from "next/link"
-import { useState, useCallback, memo } from "react"
+import { useState, useCallback, useEffect, useRef } from "react"
 import { Menu, X } from "lucide-react"
 import ThemeSwitcher from "./theme-switcher"
 
-const Header = memo(() => {
+const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [showTooltip, setShowTooltip] = useState(false)
+  const [showBetaPill, setShowBetaPill] = useState(true)
+  const headerRef = useRef<HTMLElement>(null)
 
   const toggleMenu = useCallback(() => {
     setIsMenuOpen((prev) => !prev)
@@ -21,12 +23,25 @@ const Header = memo(() => {
     setShowTooltip(false)
   }, [])
 
+  useEffect(() => {
+    const handleScroll = () => {
+      if (typeof window !== 'undefined') {
+        // Hide beta pill when scrolled past 100vh (viewport height)
+        setShowBetaPill(window.scrollY < window.innerHeight)
+      }
+    }
+
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
   // Hardcoded background color
   const bgColor = "rgba(18, 18, 18, 0.9)"
 
   return (
     <>
       <header
+        ref={headerRef}
         style={{
           backgroundColor: bgColor,
           position: "fixed",
@@ -70,7 +85,7 @@ const Header = memo(() => {
           >
             <Link
               href="https://docs.unison.gg"
-              className="text-xs font-geist-mono font-bold underline decoration-yellow-400 underline-offset-4 flex items-center text-white"
+              className="text-xs font-geist-mono font-bold underline decoration-yellow-400 underline-offset-4 decoration-2 flex items-center text-white"
             >
               DOCS
             </Link>
@@ -105,10 +120,10 @@ const Header = memo(() => {
           </button>
         </div>
       </header>
-      {/* Beta Waitlist Pill - Only show when mobile menu is closed */}
-      {!isMenuOpen && (
-        <div className="fixed top-[6rem] sm:top-[6rem] md:top-[6rem] lg:top-[8rem] left-0 right-0 z-10 flex justify-center">
-          <div className="relative">
+      {/* Beta Waitlist Pill - Only show when mobile menu is closed and user is in hero section */}
+      {!isMenuOpen && showBetaPill && (
+        <div className="fixed top-[6rem] sm:top-[6rem] md:top-[6rem] lg:top-[8rem] left-0 right-0 z-10 flex justify-center transition-opacity duration-300">
+          <div className="relative group">
             <div
               className="bg-gradient-to-bl from-zinc-700 to-zinc-900 hover:from-zinc-900 hover:to-zinc-700 text-white text-xs py-1 px-4 rounded-full border border-gray-500 cursor-pointer hover:opacity-90 transition-opacity relative z-10"
               style={{ boxShadow: "0 0 10px rgba(0, 0, 0, 0.4), 0 0 15px rgba(255, 255, 255, 0.2)" }}
@@ -116,7 +131,7 @@ const Header = memo(() => {
               <span className="font-alte-haas"><a href="#">Join Waitlist for Beta Access!</a></span>
             </div>
             <div
-              className="absolute -inset-1  rounded-full blur opacity-50 group-hover:opacity-75 transition duration-300"
+              className="absolute -inset-1 rounded-full blur opacity-50 group-hover:opacity-75 transition duration-300"
               style={{ zIndex: 1 }}
             ></div>
           </div>
@@ -124,7 +139,7 @@ const Header = memo(() => {
       )}
     </>
   )
-})
+}
 
 Header.displayName = "Header"
 

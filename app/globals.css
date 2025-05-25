@@ -5,7 +5,7 @@
 /* Default Theme */
 :root {
   --background: rgb(235, 233, 228);
-  --subheading-text: rgba(0, 0, 0, 0.8);
+  --subheading-text: rgba(0, 0, 0, 0.7);
   --foreground: #222222;
   --accent: #f8f3a3;
   --card: 0 0% 100%;
@@ -167,6 +167,9 @@ footer{
   font-family: var(--font-geist-mono), monospace;
 }
 
+.footer-bg{
+  background-color: #ebe9e4;
+}
 
 /* Headings */
 h1.font-serif,

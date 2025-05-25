@@ -225,10 +225,9 @@ export default function Home() {
                 <div className="max-w-xl mx-auto w-full">
                   <h1 className="text-4xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl font-serif mb-3 lg:mb-6 tracking-normal">
                     <span className="block font-serif">Asset Management & Yield Protocol</span>
-                    <div className="text-[var(--subheading-text)] p-2 mt-6 w-full max-w-md">
-                      <span className="block text-[12px] sm:text-[14px] md:text-[14px] lg:text-base font-alte-haas tracking-normal leading-5 sm:leading-6 md:leading-6">
-                        Yield Infrastructure with Chain-Abstraction & Automation, for <span className="font-bold">Scalable</span>, <span className="font-bold">Efficient</span>, and <span className="font-bold">Accessible</span> Cross-Chain Vaults and Strategies.
-                      </span>
+                    <div className="text-[var(--subheading-text)] mt-6 w-full max-w-md">
+                      <span className="block text-[14px] sm:text-[14px] md:text-[14px] lg:text-base font-alte-haas tracking-normal leading-5 sm:leading-6 md:leading-6">
+                      Access our best-in-class yield vaults or build your own. Cross-chain optimization made simple.</span>
                     </div>
                   </h1>
 
@@ -742,7 +741,7 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <div className="w-full font-geist-mono font-medium bg-[#ebe9e4]">
+      <div className="w-full font-geist-mono font-medium footer-bg">
         <div className="max-w-7xl mx-auto px-6 lg:px-8 pb-6 ">
           <div className="flex flex-col md:flex-row justify-between items-start md:items-end py-5 px-4">
             <div className="flex flex-col space-y-2 mb-4 md:mb-0 w-full md:w-auto">
@@ -760,7 +759,7 @@ export default function Home() {
               </div>
               <div className="relative inline-block">
                 <span
-                  className="text-sm !text-black hover:text-black block relative underline underline-offset-4"
+                  className="text-sm !text-zinc-800 hover:text-black block relative underline underline-offset-4 decoration-2 decoration-zinc-800"
                   onMouseEnter={() => setShowAppTooltip(true)}
                   onMouseLeave={() => setShowAppTooltip(false)}
                 >
@@ -773,17 +772,17 @@ export default function Home() {
                   </div>
                 )}
               </div>
-              <a target="_blank" rel="noopener noreferrer" href="https://docs.unison.gg" className="text-sm underline underline-offset-4 !text-black hover:text-black block">
+              <a target="_blank" rel="noopener noreferrer" href="https://docs.unison.gg" className="text-sm !text-zinc-800 hover:text-black block">
                 DOCS
               </a>
-              <a target="_blank" rel="noopener noreferrer" href="https://twitter.com/unison_gg" className="text-sm underline underline-offset-4 !text-black hover:text-black block">
+              <a target="_blank" rel="noopener noreferrer" href="https://twitter.com/unison_gg" className="text-sm !text-zinc-800 hover:text-black block">
                 X/TWITTER
               </a>
-              <a target="_blank" rel="noopener noreferrer" href="https://discord.gg/aQJQhUhG" className="text-sm underline underline-offset-4 !text-black hover:text-black block">
+              <a target="_blank" rel="noopener noreferrer" href="https://discord.gg/aQJQhUhG" className="text-sm !text-zinc-800 hover:text-black block">
                 DISCORD
               </a>
             </div>
-            <a href="https://unison.gg" className="text-sm !text-black mt-4 md:mt-0 block">2025 UNISON - ALL RIGHTS RESERVED<sup> </sup></a>
+            <a href="https://unison.gg" className="text-sm !text-zinc-700 mt-4 md:mt-0 block bg-white/20 rounded p-2">2025 UNISON - ALL RIGHTS RESERVED<sup> </sup></a>
           </div>
         </div>
       </div>
