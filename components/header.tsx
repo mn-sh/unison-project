@@ -70,19 +70,19 @@ const Header = memo(() => {
           >
             <Link
               href="https://docs.unison.gg"
-              className="text-sm font-bold font-alte-haas underline decoration-yellow-400 underline-offset-4 flex items-center text-white"
+              className="text-xs font-geist-mono font-bold underline decoration-yellow-400 underline-offset-4 flex items-center text-white"
             >
-              docs
+              DOCS
             </Link>
             <div className="relative">
               <Link
                 href="#"
-                className="inline-flex items-center justify-center bg-gradient-to-bl from-zinc-700 to-zinc-900 hover:from-zinc-900 hover:to-zinc-700 px-4 py-2 text-black border border-gray-500 text-sm rounded-md h-[42px] lg:h-[45px]"
+                className="inline-flex items-center justify-center bg-gradient-to-bl from-zinc-700 to-zinc-900 hover:from-zinc-900 hover:to-zinc-700 px-4 py-2 text-black border border-gray-500 text-xs rounded-md h-[42px] lg:h-[40px]"
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
               >
-                <span className="flex items-center">
-                  Launch App <span className="ml-2">→</span>
+                <span className="flex items-center font-geist-mono font-bold">
+                  LAUNCH APP <span className="ml-2">→</span>
                 </span>
               </Link>
               {showTooltip && (

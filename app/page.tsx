@@ -210,7 +210,7 @@ export default function Home() {
       {/* Hero Section */}
       <section ref={(el) => (sectionsRef.current[0] = el)} className="w-full flex items-center">
         <div className="w-full pt-16 lg:pt-24 px-6 lg:px-16">
-          <div className="max-w-6xl mx-auto">
+          <div className="max-w-7xl mx-auto">
             <div className="flex flex-col lg:flex-row">
               {/* Content column */}
               <div className="order-2 lg:order-1 bg-[rgb(235, 233, 228)] p-6 lg:p-16 flex-1 min-h-[300px] lg:min-h-[600px] flex flex-col justify-center">
@@ -224,7 +224,7 @@ export default function Home() {
                 <div className="max-w-xl mx-auto w-full">
                   <h1 className="text-4xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl font-serif mb-3 lg:mb-6 tracking-normal">
                     <span className="block font-serif">Asset Management & Yield Protocol</span>
-                   <div className="bg-[var(--text-box-bg)] text-[var(--subheading-text)] p-2 rounded mt-6 w-full max-w-md">
+                   <div className="text-[var(--subheading-text)] p-2 mt-6 w-full max-w-md">
                      <span className="block text-[12px] sm:text-[14px] md:text-[14px] lg:text-base font-alte-haas tracking-normal leading-5 sm:leading-6 md:leading-6">
                        Yield Infrastructure with Chain-Abstraction & Automation, for <span className="font-bold">Scalable</span>, <span className="font-bold">Efficient</span>, and <span className="font-bold">Accessible</span> Cross-Chain Vaults and Strategies.
                      </span>
@@ -263,13 +263,13 @@ export default function Home() {
                       ) : submitSuccess ? (
                         "Joined"
                       ) : (
-                        "Join Waitlist"
+                        "JOIN WAITLIST"
                       )}
                     </button>
 
                   </form>
 
-                  <div className="-mt-4 sm:mt-0">
+                  <div className="-mt-4 sm:mt-0 md:pr-16">
                     <CompatibleChains />
                   </div>
                 </div>
@@ -741,21 +741,21 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <div className="w-full">
-        <div className="max-w-full mx-auto px-6 lg:px-16 pb-6">
-          <div className="flex justify-between items-center py-5 px-4 lg:px-8  border border-gray-500 border-opacity-25">
-            <div className="text-xs text-white"> 2025 Unison - All rights reserved.</div>
-            <div className="flex space-x-4">
+      <div className="w-full font-geist-mono">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8 pb-6">
+          <div className="flex flex-col items-center text-center md:text-left md:flex-row md:justify-between py-5 px-4 border border-gray-500 border-opacity-25">
+            <div className="flex flex-col items-center space-y-2 md:space-y-0 md:space-x-6 md:flex-row">
               <a target="_blank" rel="noopener noreferrer" href="https://docs.unison.gg" className="text-xs text-white hover:text-white">
-                docs
+                DOCS
               </a>
               <a target="_blank" rel="noopener noreferrer" href="https://twitter.com/unison_gg" className="text-xs text-white hover:text-white">
-                X / twitter
+                X / TWITTER
               </a>
               <a target="_blank" rel="noopener noreferrer" href="https://discord.gg/aQJQhUhG" className="text-xs text-white hover:text-white">
-                discord
+                DISCORD
               </a>
             </div>
+            <div className="text-xs text-white/50 md:text-white mb-1 md:mb-0 mt-5 md:mt-0"> 2025 UNISON - ALL RIGHTS RESERVED<sup> </sup></div>
           </div>
         </div>
       </div>

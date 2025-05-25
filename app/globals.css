@@ -145,6 +145,23 @@ input,
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+.font-geist-mono {
+  font-family: var(--font-geist-mono), monospace;
+  font-display: swap;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.font-kodchasan {
+  font-family: var(--font-kodchasan), sans-serif;
+  font-display: swap;
+}
+
+/* Apply Geist Mono to buttons and footer */
+button, .btn, footer {
+  font-family: var(--font-geist-mono), monospace;
+}
 
 /* Headings */
 h1.font-serif,
