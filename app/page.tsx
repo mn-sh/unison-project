@@ -224,10 +224,10 @@ export default function Home() {
 
                 <div className="max-w-xl mx-auto w-full">
                   <h1 className="text-4xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl font-serif mb-3 lg:mb-6 tracking-normal">
-                    <span className="block font-serif">Asset Management & Yield Protocol</span>
-                    <div className="text-[var(--subheading-text)] mt-6 w-full max-w-md">
-                      <span className="block text-[14px] sm:text-[14px] md:text-[14px] lg:text-base font-alte-haas tracking-normal leading-5 sm:leading-6 md:leading-6">
-                      Access our best-in-class yield vaults or build your own. Cross-chain optimization made simple.</span>
+                    <span className="block font-serif">The Best Yields, Guaranteed.</span>
+                    <div className="text-[var(--foreground)] mt-6 w-full max-w-md">
+                      <span className="block text-[14px] sm:text-[14px] md:text-[14px] lg:text-[16px] font-karla tracking-normal leading-5 sm:leading-6 md:leading-6">
+                      Unison is a cross-chain yield platform with one-click deposits and intuitive interface. Access optimized vaults or create custom strategies across multiple blockchains.</span>
                     </div>
                   </h1>
 

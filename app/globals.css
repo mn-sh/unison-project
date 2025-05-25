@@ -157,6 +157,10 @@ input,
   font-family: var(--font-kodchasan), sans-serif;
   font-display: swap;
 }
+.font-karla {
+  font-family: var(--font-karla), sans-serif;
+  font-display: swap;
+}
 
 /* Apply Geist Mono to buttons and footer */
 button, .btn{

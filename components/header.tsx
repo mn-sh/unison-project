@@ -128,7 +128,7 @@ const Header = () => {
               className="bg-gradient-to-bl from-zinc-700 to-zinc-900 hover:from-zinc-900 hover:to-zinc-700 text-white text-xs py-1 px-4 rounded-full border border-gray-500 cursor-pointer hover:opacity-90 transition-opacity relative z-10"
               style={{ boxShadow: "0 0 10px rgba(0, 0, 0, 0.4), 0 0 15px rgba(255, 255, 255, 0.2)" }}
             >
-              <span className="font-alte-haas"><a href="#">Join Waitlist for Beta Access!</a></span>
+              <span className="font-karla"><a href="#">Join Waitlist for Beta Access!</a></span>
             </div>
             <div
               className="absolute -inset-1 rounded-full blur opacity-50 group-hover:opacity-75 transition duration-300"
