@@ -271,7 +271,7 @@ export default function Home() {
 
                   </form>
 
-                  <div className="-mt-4 sm:mt-0 md:pr-16">
+                  <div className="-mt-4 max-w-md sm:mt-0">
                     <CompatibleChains />
                   </div>
                 </div>
