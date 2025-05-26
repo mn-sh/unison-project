@@ -40,7 +40,7 @@ const CompatibleChains = memo(function CompatibleChains() {
   }, [])
 
   return (
-    <div className="mt-8 md:mt-8 pt-2 md:pt-8">
+    <div className="mt-8 md:mt-4 pt-2 md:pt-8">
       <div className="flex w-full mb-4">
         <div className="h-px flex-1 bg-red-500"></div>
         <div className="h-px flex-1 bg-orange-500"></div>
