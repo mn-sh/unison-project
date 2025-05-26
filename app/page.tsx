@@ -730,8 +730,8 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <div className="w-full font-geist-mono font-medium footer-bg">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8 pb-6 ">
+      <div className="w-full font-geist-mono font-medium footer-bg pb-6">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="flex flex-col md:flex-row justify-between items-start md:items-end py-5 px-4">
             <div className="flex flex-col space-y-2 mb-4 md:mb-0 w-full md:w-auto">
               <div className="ml-0 mt-2 mb-4">
