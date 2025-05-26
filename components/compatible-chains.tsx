@@ -51,9 +51,9 @@ const CompatibleChains = memo(function CompatibleChains() {
         <div className="h-px flex-1 bg-purple-500"></div>
       </div>
       <div className="text-center mb-3 md:mb-6">
-        <div className="text-sm uppercase opacity-60">Compatible With</div>
+        <div className="text-sm uppercase opacity-80">Compatible With</div>
       </div>
-      <div className="flex flex-wrap justify-center items-center gap-4 md:gap-8 lg:gap-12">
+      <div className="flex flex-wrap justify-center items-center gap-[10%] md:gap-8 lg:gap-12">
         {/* Ethereum */}
         <div
           className="opacity-90 hover:opacity-100 transition-opacity relative"
