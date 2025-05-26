@@ -122,18 +122,6 @@ export default function Home() {
       })
     }
   }, [])
-
-  // Reset tab state when entering/leaving section 2
-  useEffect(() => {
-    if (activeSection === 2) {
-      if (!hasTabSwitched) {
-        setActiveTab("individuals")
-      }
-    } else {
-      setHasTabSwitched(false)
-    }
-  }, [activeSection, hasTabSwitched])
-
   // Update body and header classes based on active section
   useEffect(() => {
     const body = document.body
@@ -207,7 +195,7 @@ export default function Home() {
   }
 
   return (
-    <main className="min-h-screen">
+    <main className="">
       {/* Hero Section */}
       <section ref={(el) => (sectionsRef.current[0] = el)} className="w-full flex items-center">
         <div className="w-full pt-16 lg:pt-24 px-6 lg:px-16">
@@ -224,12 +212,11 @@ export default function Home() {
 
                 <div className="max-w-xl mx-auto w-full">
                   <h1 className="text-4xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl font-serif mb-3 lg:mb-6 tracking-normal">
-                    <span className="block font-serif">The Best Yields, Guaranteed.</span>
+                    <span className="block font-serif">The Best Yields, <span className="!text-yellow-600">Guaranteed.</span></span>
                     <div className="text-[var(--foreground)] mt-6 w-full max-w-md">
                       <span className="block text-[14px] sm:text-[14px] md:text-[14px] lg:text-[16px] font-karla tracking-normal leading-5 sm:leading-6 md:leading-6">
-                      Unison is a cross-chain yield platform with one-click deposits and intuitive interface. 
-                      <div className="h-px w-32 bg-gradient-to-r from-yellow-500 to-transparent border-0 dark:bg-gray-700"></div>
-                      Access optimized vaults or create custom strategies across multiple blockchains.</span>
+                      Unison is a cross-chain yield platform offering one-click deposits and an intuitive interface to access optimized vaults or create custom strategies across multiple blockchains.</span>
+                      {/* <div className="h-px w-32 bg-gradient-to-r from-yellow-500 to-transparent border-0 dark:bg-gray-700"></div> */}
                     </div>
                   </h1>
 
