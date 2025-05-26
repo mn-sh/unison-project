@@ -83,9 +83,15 @@ const config: Config = {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
       },
-    },
+      screens: {
+        'xs': '200px', // iPhone 13 mini width
+        'iphone-13-mini': {'raw': '(max-width: 375px) and (max-height: 812px)'},
+        'sm-h': {'raw': '(max-height: 812px)'}, // iPhone 13 mini height
+      },
+    }, // <- This closing bracket was missing
   },
-  plugins: [require("tailwindcss-animate"),
+  plugins: [
+    require("tailwindcss-animate"),
     require('tailwindcss-textshadow'),
   ],
 }

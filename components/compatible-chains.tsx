@@ -53,14 +53,14 @@ const CompatibleChains = memo(function CompatibleChains() {
       <div className="text-center mb-3 md:mb-6">
         <div className="text-sm uppercase opacity-80">Compatible With</div>
       </div>
-      <div className="flex flex-wrap justify-center items-center gap-[6.5%] lg:gap-[10%]">
+      <div className="flex flex-wrap justify-center items-center gap-[7.75%] iphone-13-mini:gap-[6%] lg:gap-[10%]">
         {/* Ethereum */}
         <div
           className="opacity-90 hover:opacity-100 transition-opacity relative"
           onMouseEnter={() => showTooltip("Ethereum")}
           onMouseLeave={hideTooltip}
         >
-          <svg width="28" height="28" viewBox="0 0 256 417" xmlns="http://www.w3.org/2000/svg" className="fill-current">
+          <svg width="24" height="24" viewBox="0 0 256 417" xmlns="http://www.w3.org/2000/svg" className="fill-current">
             <path d="M127.961 0l-2.795 9.5v275.668l2.795 2.79 127.962-75.638z" />
             <path d="M127.962 0L0 212.32l127.962 75.639V154.158z" fillOpacity="0.8" />
             <path d="M127.961 312.187l-1.575 1.92v98.199l1.575 4.6L256 236.587z" />
@@ -86,8 +86,8 @@ const CompatibleChains = memo(function CompatibleChains() {
           style={{ color: "rgb(234,52,49)" }}
         >
           <svg
-            width="28"
-            height="28"
+            width="24"
+            height="24"
             viewBox="0 0 100 100"
             xmlns="http://www.w3.org/2000/svg"
             className="fill-current"
@@ -121,8 +121,8 @@ const CompatibleChains = memo(function CompatibleChains() {
           style={{ color: "rgb(33,81,245)" }}
         >
           <svg
-            width="28"
-            height="28"
+            width="24"
+            height="24"
             viewBox="0 0 111 111"
             xmlns="http://www.w3.org/2000/svg"
             className="fill-current"
@@ -150,7 +150,7 @@ const CompatibleChains = memo(function CompatibleChains() {
           onMouseLeave={hideTooltip}
           style={{ color: "rgb(121,73,44)", margin: "2px" }}
         >
-          <svg width="28" height="28" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <svg width="24" height="24" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
             <circle cx="40" cy="40" r="40" fill="currentColor" />
             <path
               d="M38.5083 37.9747C38.4643 37.8418 38.4335 37.7055 38.4097 37.5679C38.3988 37.5041 38.3862 37.4407 38.3717 37.3777C38.3404 37.2408 38.3055 37.1047 38.2678 36.9693V36.969C38.8916 36.0594 41.8735 31.3157 38.4803 28.271C34.7143 24.8918 30.3139 29.321 30.3139 29.321L30.3276 29.3407C28.3499 28.7618 26.2054 28.6939 24.119 29.3208C24.1188 29.3208 24.1186 29.3208 24.1186 29.3208C24.0928 29.2949 19.7074 24.9017 15.9525 28.271C12.1963 31.6414 16.2523 37.0942 16.2736 37.1226C16.2736 37.1226 16.2736 37.1228 16.2736 37.123C16.2303 37.2511 16.1955 37.3819 16.1725 37.5148C15.7661 39.8482 12.9999 40.5683 12.9999 44.6327C12.9999 48.6971 15.8938 52.0403 21.8005 52.0403H24.2243C24.2243 52.0403 24.2245 52.0403 24.2247 52.0403C24.2356 52.0552 25.2334 53.4176 27.2825 53.416C29.1847 53.4147 30.441 52.0519 30.4519 52.0403C30.4519 52.0403 30.4519 52.0403 30.4523 52.0403H32.7646C38.6714 52.0403 41.5653 48.7756 41.5653 44.6327C41.5653 40.8478 39.1663 39.9629 38.5085 37.9747H38.5083Z"
@@ -178,8 +178,8 @@ const CompatibleChains = memo(function CompatibleChains() {
           onMouseLeave={hideTooltip}
         >
           <svg
-            width="28"
-            height="28"
+            width="24"
+            height="24"
             viewBox="0 0 373.1 420.29"
             xmlns="http://www.w3.org/2000/svg"
             className="fill-current"
@@ -204,7 +204,7 @@ const CompatibleChains = memo(function CompatibleChains() {
           onMouseLeave={hideTooltip}
           style={{ color: "var(--polygon-color, rgb(20,20,22))" }}
         >
-          <svg width="28" height="28" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg" className="fill-current">
+          <svg width="24" height="24" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg" className="fill-current">
             <path
               d="M180.26,185.07l.03-.02s-.03.02-.05.03c.01,0,.02,0,.03,0h0Z
                   M180.24,185.08c-46.81,14.06-85.52,34.57-109.77,58.59l-1.07,1.07c6.45,6.1,13.52,11.56,21.16,16.2l1.64-2.01c6.62-8.09,13.72-15.9,21.11-23.26,19.83-19.76,42.51-36.86,66.93-50.59Z
