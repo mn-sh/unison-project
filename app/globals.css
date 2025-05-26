@@ -4,7 +4,7 @@
 
 /* Default Theme */
 :root {
-  --background: rgb(235, 233, 228);
+  --background: #FAFAFA;
   --subheading-text: rgba(0, 0, 0, 0.7);
   --foreground: #222222;
   --accent: #f8f3a3;
@@ -97,7 +97,6 @@
   --border: 0 0% 14.9%;
   --input: 0 0% 14.9%;
   --ring: 0 0% 83.1%;
-  --decor: #facc15;
   --text-box-bg: rgba(47, 47, 47, 0.2);
 }
 

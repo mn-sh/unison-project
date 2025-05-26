@@ -227,7 +227,9 @@ export default function Home() {
                     <span className="block font-serif">The Best Yields, Guaranteed.</span>
                     <div className="text-[var(--foreground)] mt-6 w-full max-w-md">
                       <span className="block text-[14px] sm:text-[14px] md:text-[14px] lg:text-[16px] font-karla tracking-normal leading-5 sm:leading-6 md:leading-6">
-                      Unison is a cross-chain yield platform with one-click deposits and intuitive interface. Access optimized vaults or create custom strategies across multiple blockchains.</span>
+                      Unison is a cross-chain yield platform with one-click deposits and intuitive interface. 
+                      <div className="h-px w-32 bg-gradient-to-r from-yellow-500 to-transparent border-0 dark:bg-gray-700"></div>
+                      Access optimized vaults or create custom strategies across multiple blockchains.</span>
                     </div>
                   </h1>
 
@@ -297,7 +299,7 @@ export default function Home() {
               <div className="mb-1 text-sm uppercase" style={{ color: "var(--foreground)", transition: "none" }}>
                 PUBLIC VAULTS
               </div>
-              <div className="w-[110px] h-0.5 bg-[var(--decor)] mb-4"></div>
+              <div className="w-[110px] h-px bg-gradient-to-r from-[var(--decor)] to-transparent mb-4"></div>
             </div>
 
             {/* Content area with heading and cards side by side */}
@@ -440,7 +442,7 @@ export default function Home() {
         <div className="w-full py-12 lg:py-16 px-6 lg:px-16">
           <div className="max-w-6xl mx-auto">
             <div className="mb-2 text-sm uppercase">FEATURES</div>
-            <div className="w-16 h-0.5 bg-[var(--decor)] mb-6"></div>
+            <div className="w-16 h-px bg-gradient-to-r from-[var(--decor)] to-transparent mb-6"></div>
 
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif mb-10 lg:mb-16">
               Providing you with the best of DeFi
@@ -759,12 +761,13 @@ export default function Home() {
               </div>
               <div className="relative inline-block">
                 <span
-                  className="text-sm !text-zinc-800 hover:text-black block relative underline underline-offset-4 decoration-2 decoration-zinc-800"
+                  className="text-sm !text-zinc-800 hover:text-black block relative"
                   onMouseEnter={() => setShowAppTooltip(true)}
                   onMouseLeave={() => setShowAppTooltip(false)}
                 >
                   APP
                 </span>
+                <div className="w-8 h-px bg-gradient-to-r from-yellow-500 to-transparent"></div>
                 {showAppTooltip && (
                   <div className="absolute left-1/2 -translate-x-1/2 bottom-full mb-2 px-3 py-1 bg-black text-white text-xs rounded whitespace-nowrap opacity-90 transition-opacity duration-200 font-geist-mono">
                     COMING SOON
@@ -775,12 +778,15 @@ export default function Home() {
               <a target="_blank" rel="noopener noreferrer" href="https://docs.unison.gg" className="text-sm !text-zinc-800 hover:text-black block">
                 DOCS
               </a>
+              <div className="w-8 h-px bg-gradient-to-r from-yellow-500 to-transparent"></div>
               <a target="_blank" rel="noopener noreferrer" href="https://twitter.com/unison_gg" className="text-sm !text-zinc-800 hover:text-black block">
                 X/TWITTER
               </a>
+              <div className="w-8 h-px bg-gradient-to-r from-yellow-500 to-transparent"></div>
               <a target="_blank" rel="noopener noreferrer" href="https://discord.gg/aQJQhUhG" className="text-sm !text-zinc-800 hover:text-black block">
                 DISCORD
               </a>
+              <div className="w-8 h-px bg-gradient-to-r from-yellow-500 to-transparent"></div>
             </div>
             <a href="https://unison.gg" className="text-sm !text-zinc-700 mt-4 md:mt-0 block bg-white/20 rounded p-2">2025 UNISON - ALL RIGHTS RESERVED<sup> </sup></a>
           </div>
