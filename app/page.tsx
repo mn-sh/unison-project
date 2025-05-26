@@ -788,7 +788,7 @@ export default function Home() {
               </a>
               <div className="w-8 h-px bg-gradient-to-r from-yellow-500 to-transparent"></div>
             </div>
-            <a href="https://unison.gg" className="text-sm !text-zinc-700 mt-4 md:mt-0 block bg-white/20 rounded p-2">2025 UNISON - ALL RIGHTS RESERVED<sup> </sup></a>
+            <a href="https://unison.gg" className="text-sm !text-zinc-700 mt-4 md:mt-0 block bg-white/20 rounded p-2">2025 UNISON - ALL RIGHTS RESERVED<sup>©</sup></a>
           </div>
         </div>
       </div>
