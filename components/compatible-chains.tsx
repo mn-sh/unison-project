@@ -40,7 +40,7 @@ const CompatibleChains = memo(function CompatibleChains() {
   }, [])
 
   return (
-    <div className="mt-8 md:mt-4 pt-2 md:pt-8">
+    <div className="mt-8 md:mt-4 pt-4 md:pt-8">
       <div className="flex w-full mb-4">
         <div className="h-px flex-1 bg-red-500"></div>
         <div className="h-px flex-1 bg-orange-500"></div>
@@ -51,7 +51,7 @@ const CompatibleChains = memo(function CompatibleChains() {
         <div className="h-px flex-1 bg-purple-500"></div>
       </div>
       <div className="text-center mb-3 md:mb-6">
-        <div className="text-sm uppercase opacity-80">Compatible With</div>
+        <div className="text-sm mt-2 uppercase opacity-80">Earn From</div>
       </div>
       <div className="flex flex-wrap justify-center items-center gap-[7.75%] iphone-13-mini:gap-[6%] lg:gap-[10%]">
         {/* Ethereum */}
