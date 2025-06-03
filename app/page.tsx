@@ -770,7 +770,7 @@ export default function Home() {
                 X/TWITTER
               </a>
               <div className="w-8 h-px bg-gradient-to-r from-yellow-500 to-transparent"></div>
-              <a target="_blank" rel="noopener noreferrer" href="https://discord.gg/aQJQhUhG" className="text-sm !text-zinc-800 hover:text-black block">
+              <a target="_blank" rel="noopener noreferrer" href="https://discord.gg/wefXKHkjMU" className="text-sm !text-zinc-800 hover:text-black block">
                 DISCORD
               </a>
               <div className="w-8 h-px bg-gradient-to-r from-yellow-500 to-transparent"></div>
