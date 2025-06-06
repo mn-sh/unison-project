@@ -197,7 +197,7 @@ export default function Home() {
   return (
     <main className="">
       {/* Hero Section */}
-      <section ref={(el) => (sectionsRef.current[0] = el)} className="w-full flex items-center">
+      <section ref={(el) => (sectionsRef.current[0] = el)} className="min-h-screen w-full flex items-center">
         <div className="w-full pt-16 lg:pt-24 px-6 lg:px-16">
           <div className="max-w-7xl mx-auto">
             <div className="flex flex-col lg:flex-row">

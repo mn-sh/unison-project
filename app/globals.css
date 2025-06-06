@@ -311,7 +311,7 @@ html {
 /* Section styles */
 section {
   scroll-margin-top: 80px; /* Add scroll margin for header */
-  min-height: 100vh;
+  /*min-height: 100vh;*/
   width: 100%;
   display: flex;
   align-items: center;
@@ -325,7 +325,7 @@ section {
   section {
     position: relative;
     height: auto;
-    min-height: 100vh;
+    /*min-height: 100vh;*/
     contain: layout style paint;
   }
 
@@ -344,7 +344,7 @@ section {
   section {
     position: relative !important;
     width: 100%;
-    min-height: 100vh;
+    /*min-height: 100vh;*/
     opacity: 1 !important;
     pointer-events: auto !important;
     display: block !important;
